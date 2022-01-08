@@ -14,21 +14,21 @@ public class Player extends Actor
      */
     public void act()
     {
-       if (Greenfoot.isKeyDown("d"))
-      {
-          move(3);
-      }
-      else if (Greenfoot.isKeyDown("a"))
-      {
-          move(-3);
-      }
-      else if (Greenfoot.isKeyDown("w"))
-      {
-          setLocation(getX(), getY() - 3);
-      }
-      else if (Greenfoot.isKeyDown("s"))
-      {
-          setLocation(getX(), getY() + 3);
-      }
+        if (Greenfoot.isKeyDown("d"))
+        {
+            move(3);
+        }
+        else if (Greenfoot.isKeyDown("a"))
+        {
+            move(-3);
+        }
+        else if (Greenfoot.isKeyDown("w"))
+        {
+            setLocation(getX(), getY() - 3);
+        }
+        else if (Greenfoot.isKeyDown("s"))
+        {
+            setLocation(getX(), getY() + 3);
+        }
     }
 }
