@@ -30,5 +30,10 @@ public class Player extends Actor
         {
             setLocation(getX(), getY() + 3);
         }
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if(mouse!=null){  
+            mouse.getX();  
+            mouse.getY();  
+        }
     }
 }
