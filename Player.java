@@ -8,32 +8,67 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
+    public int dashTimer = 0;
+    MouseInfo mouse = Greenfoot.getMouseInfo();
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act()
+    public void act() 
     {
-        if (Greenfoot.isKeyDown("d"))
-        {
-            move(3);
-        }
-        else if (Greenfoot.isKeyDown("a"))
-        {
-            move(-3);
-        }
-        else if (Greenfoot.isKeyDown("w"))
-        {
-            setLocation(getX(), getY() - 3);
-        }
-        else if (Greenfoot.isKeyDown("s"))
-        {
-            setLocation(getX(), getY() + 3);
-        }
+        move();
+        dash();
+        
         MouseInfo mouse = Greenfoot.getMouseInfo();
-        if(mouse!=null){  
-            mouse.getX();  
-            mouse.getY();  
+        if(mouse != null)
+        {
+            turnTowards(mouse);
         }
+    }    
+
+    private void move()
+    {
+        if(Greenfoot.isKeyDown("W"))
+        {
+            setLocation(getX(),getY()-2);
+        }
+        if(Greenfoot.isKeyDown("A"))
+        {
+            setLocation(getX()-2,getY());
+        }
+        if(Greenfoot.isKeyDown("S"))
+        {
+            setLocation(getX(),getY()+2);
+        }
+        if(Greenfoot.isKeyDown("D"))
+        {
+            setLocation(getX()+2,getY());
+        }
+    }
+    
+    public void dash()
+    {
+        if(dashTimer <= 0)
+        {
+            if(Greenfoot.isKeyDown("shift"))
+            {
+                move(100);
+                dashTimer = 75;
+            }
+            
+        }
+        dashTimer--;
+    }
+
+    public void turnTowards (int x, int y)
+    {
+        double dx = x - getX();
+        double dy = y - getY();
+        double angle = Math.atan2(dy,dx)*180.0/Math.PI;
+        setRotation( (int)angle );
+    }
+    public void turnTowards (MouseInfo mi)
+    {
+        turnTowards(mi.getX(), mi.getY());
     }
 }
