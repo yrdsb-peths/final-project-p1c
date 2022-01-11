@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Player extends Actor
 {
     public int dashTimer = 0;
+    boolean mouseIsDown = false;
     MouseInfo mouse = Greenfoot.getMouseInfo();
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
@@ -18,7 +19,7 @@ public class Player extends Actor
     {
         move();
         dash();
-        
+        shoot();
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if(mouse != null)
         {
@@ -45,7 +46,7 @@ public class Player extends Actor
             setLocation(getX()+2,getY());
         }
     }
-    
+
     public void dash()
     {
         if(dashTimer <= 0)
@@ -55,18 +56,23 @@ public class Player extends Actor
                 move(100);
                 dashTimer = 75;
             }
-            
+
         }
         dashTimer--;
     }
 
-    public void turnTowards (int x, int y)
-    {
-        double dx = x - getX();
-        double dy = y - getY();
-        double angle = Math.atan2(dy,dx)*180.0/Math.PI;
-        setRotation( (int)angle );
+    public void shoot(){
+        if(Greenfoot.mousePressed(null)){
+            mouseIsDown = true;  
+        }
+        else if(Greenfoot.mouseClicked(null) || Greenfoot.mouseDragEnded(null)){
+            mouseIsDown = false;
+        }
+        if(mouseIsDown){
+            System.out.println("HOLDING");
+        }
     }
+
     public void turnTowards (MouseInfo mi)
     {
         turnTowards(mi.getX(), mi.getY());
