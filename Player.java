@@ -19,8 +19,8 @@ public class Player extends Actor
     {
         move();
         dash();
-        shoot();
         MouseInfo mouse = Greenfoot.getMouseInfo();
+        shoot(mouse);
         if(mouse != null)
         {
             turnTowards(mouse);
@@ -60,16 +60,17 @@ public class Player extends Actor
         }
         dashTimer--;
     }
-
-    public void shoot(){
+    public void shoot(MouseInfo mouse){
         if(Greenfoot.mousePressed(null)){
-            mouseIsDown = true;  
+            mouseIsDown = true;
         }
         else if(Greenfoot.mouseClicked(null) || Greenfoot.mouseDragEnded(null)){
             mouseIsDown = false;
         }
         if(mouseIsDown){
-            System.out.println("HOLDING");
+            Bullet bullet = new Bullet();
+            getWorld().addObject(bullet,getX(),getY());
+            bullet.turnTowards(mouse.getX(), mouse.getY());
         }
     }
 
