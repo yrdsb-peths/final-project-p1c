@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
+    int enemyTimer = 0;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -17,14 +17,20 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 700, 1); 
-        
         Player player = new Player();
         addObject(player, 400, 400);
-        Enemy enemy = new Enemy();
-        addObject(enemy, 700, 500);
     }
+
     public void act()
     {
-        
+        if(enemyTimer <= 0)
+        {
+            int ranx = Greenfoot.getRandomNumber(800);
+            int rany = Greenfoot.getRandomNumber(700);
+            Enemy enemy = new Enemy();
+            addObject(enemy, ranx, rany);
+            enemyTimer = 75;
+        }
+        enemyTimer--;
     }
 }
