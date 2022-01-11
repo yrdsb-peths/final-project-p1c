@@ -20,6 +20,8 @@ public class MyWorld extends World
         
         Player player = new Player();
         addObject(player, 400, 400);
+        Enemy enemy = new Enemy();
+        addObject(enemy, 700, 500);
     }
     public void act()
     {
