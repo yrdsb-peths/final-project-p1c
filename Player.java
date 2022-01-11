@@ -73,7 +73,6 @@ public class Player extends Actor
             bullet.turnTowards(mouse.getX(), mouse.getY());
         }
     }
-
     public void turnTowards (MouseInfo mi)
     {
         turnTowards(mi.getX(), mi.getY());
