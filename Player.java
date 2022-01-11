@@ -56,7 +56,6 @@ public class Player extends Actor
                 move(100);
                 dashTimer = 75;
             }
-
         }
         dashTimer--;
     }
