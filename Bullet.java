@@ -20,5 +20,8 @@ public class Bullet extends Actor
         if(isAtEdge()){
             world.removeObject(this);
         }
+        else if (isTouching(Enemy.class)){
+            removeTouching(Enemy.class);
+        }
     }
 }
