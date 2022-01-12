@@ -16,6 +16,16 @@ public class TitleScreen extends World
     public TitleScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(800, 700, 1);
+        Label start = new Label("Start", 85);
+        Label spacebar = new Label("Hit spacebar to begin", 60);
+        addObject(start, 400, 250);
+        addObject(spacebar, 400, 350);
+    }
+    public void act(){
+        if(Greenfoot.isKeyDown("space")) // Lets the player begin playing
+        {
+            Greenfoot.setWorld(new MyWorld());
+        }
     }
 }
