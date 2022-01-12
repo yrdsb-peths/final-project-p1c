@@ -16,11 +16,10 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 700, 1); 
+        super(800, 700, 1);
         Player player = new Player();
         addObject(player, 400, 400);
     }
-
     public void act()
     {
         if(enemyTimer <= 0)
@@ -29,7 +28,7 @@ public class MyWorld extends World
             int rany = Greenfoot.getRandomNumber(700);
             Enemy enemy = new Enemy();
             addObject(enemy, ranx, rany);
-            enemyTimer = 75;
+            enemyTimer = 30;
         }
         enemyTimer--;
     }
