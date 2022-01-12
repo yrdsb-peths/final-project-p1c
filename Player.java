@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Player extends Actor
 {
     public int dashTimer = 0;
+    public int shootCooldown = 0;
     boolean mouseIsDown = false;
     MouseInfo mouse = Greenfoot.getMouseInfo();
     /**
@@ -66,11 +67,13 @@ public class Player extends Actor
         else if(Greenfoot.mouseClicked(null) || Greenfoot.mouseDragEnded(null)){
             mouseIsDown = false;
         }
-        if(mouseIsDown){
+        if(mouseIsDown && shootCooldown <= 0){
             Bullet bullet = new Bullet();
             getWorld().addObject(bullet,getX(),getY());
             bullet.turnTowards(mouse.getX(), mouse.getY());
+            shootCooldown = 30;
         }
+        shootCooldown--;
     }
     public void turnTowards (MouseInfo mi)
     {
