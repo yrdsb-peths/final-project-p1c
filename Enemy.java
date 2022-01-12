@@ -20,5 +20,8 @@ public class Enemy extends Actor
         Actor player = (Actor)getWorld().getObjects(Player.class).get(0);
         turnTowards(player.getX(), player.getY());
         move(3);
+        if (isTouching(Player.class)){
+            Greenfoot.setWorld(new EndScreen());
+        }
     }    
 }
