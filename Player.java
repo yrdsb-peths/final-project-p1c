@@ -11,7 +11,7 @@ public class Player extends Actor
     public int dashTimer = 0;
     public int shootCooldown = 0;
     public int weapon = 0;
-    public int weaponUpgradeCooldown = 0;
+    public static int weaponUpgradeCooldown = 0;
     boolean mouseIsDown = false;
     MouseInfo mouse = Greenfoot.getMouseInfo();
     /**
@@ -99,5 +99,8 @@ public class Player extends Actor
     public void turnTowards (MouseInfo mi)
     {
         turnTowards(mi.getX(), mi.getY());
+    }
+    public int getCooldown(){
+        return weaponUpgradeCooldown;
     }
 }
