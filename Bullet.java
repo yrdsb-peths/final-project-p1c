@@ -46,8 +46,9 @@ public class Bullet extends Actor
             if(hitsT2 == 0)
             {
                 getWorld().removeObject(this);
+                hitsT2 = 2;
             }
-            hitsT2 = 2;
+            
         }
     }
     private void coconutT3()
@@ -62,8 +63,8 @@ public class Bullet extends Actor
             if(hitsT3 == 0)
             {
                 getWorld().removeObject(this);
+                hitsT3 = 3;
             }
-            hitsT3 = 3;
         }
     }
     private void updateCoconut()
