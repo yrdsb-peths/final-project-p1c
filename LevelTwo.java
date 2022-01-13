@@ -17,7 +17,7 @@ public class LevelTwo extends World
     public LevelTwo()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 700, 1);
+        super(800, 650, 1);
         Player player = new Player();
         addObject(player, 400, 400);
     }
@@ -26,11 +26,10 @@ public class LevelTwo extends World
     {
         if(enemyTimerTwo <= 0 && numEnemiesTwo > 0)
         {
-            int ranxTwo = Greenfoot.getRandomNumber(800);
             int ranyTwo = Greenfoot.getRandomNumber(700);
             Enemy enemyTwo = new Enemy();
-            addObject(enemyTwo, ranxTwo, ranyTwo);
-            enemyTimerTwo = 60;
+            addObject(enemyTwo, 790, ranyTwo);
+            enemyTimerTwo = 30;
             numEnemiesTwo--;
         }
         enemyTimerTwo--;

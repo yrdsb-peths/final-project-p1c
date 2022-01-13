@@ -17,7 +17,7 @@ public class MyWorld extends World
     public MyWorld()
     {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 700, 1);
+        super(800, 650, 1);
         Player player = new Player();
         addObject(player, 400, 400);
     }
@@ -28,13 +28,13 @@ public class MyWorld extends World
             int ranx = Greenfoot.getRandomNumber(800);
             int rany = Greenfoot.getRandomNumber(700);
             Enemy enemy = new Enemy();
-            addObject(enemy, ranx, rany);
+            addObject(enemy, 790, rany);
             enemyTimer = 60;
             numEnemies--;
         }
         enemyTimer--;
         if(getObjects(Enemy.class).size() == 0 && numEnemies == 0){
-            Greenfoot.delay(100);
+            Greenfoot.delay(10);
             Greenfoot.setWorld(new LevelTwo());
         }
     }
