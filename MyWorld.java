@@ -9,7 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     int enemyTimer = 0;
-    int numEnemies = 5;
+    int numEnemies = 100;
+    int weaponupgradespawn;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -36,6 +37,13 @@ public class MyWorld extends World
         if(getObjects(Enemy.class).size() == 0 && numEnemies == 0){
             Greenfoot.delay(10);
             Greenfoot.setWorld(new LevelTwo());
+        }
+        weaponupgradespawn = Greenfoot.getRandomNumber(100);
+        if(weaponupgradespawn == 67 && getObjects(WeaponUpgrade.class).size() == 0){
+            int upgradex = Greenfoot.getRandomNumber(800);
+            int upgradey = Greenfoot.getRandomNumber(700);
+            WeaponUpgrade upgrade = new WeaponUpgrade();
+            addObject(upgrade, upgradex, upgradey);
         }
     }
 }
