@@ -71,18 +71,10 @@ public class Player extends Actor
             mouseIsDown = false;
         }
         if(mouseIsDown && shootCooldown <= 0){
-            if(weapon == 0){
-                Bullet bullet = new Bullet();
-                getWorld().addObject(bullet,getX(),getY());
-                bullet.turnTowards(mouse.getX(), mouse.getY());
-                shootCooldown = 30;
-            }
-            if(weapon == 1){
-                SteelBullet steelbullet = new SteelBullet();
-                getWorld().addObject(steelbullet,getX(),getY());
-                steelbullet.turnTowards(mouse.getX(), mouse.getY());
-                shootCooldown = 15;
-            }
+            Bullet bullet = new Bullet();
+            getWorld().addObject(bullet,getX(),getY());
+            bullet.turnTowards(mouse.getX(), mouse.getY());
+            shootCooldown = 30;
         }
         if (isTouching(WeaponUpgrade.class)){
             removeTouching(WeaponUpgrade.class);
@@ -100,6 +92,7 @@ public class Player extends Actor
     {
         turnTowards(mi.getX(), mi.getY());
     }
+
     public int getCooldown(){
         return weaponUpgradeCooldown;
     }
