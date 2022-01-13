@@ -15,7 +15,6 @@ public class Enemy extends Actor
     
     public void act() 
     {
-        MyWorld world = (MyWorld) getWorld();
         if (getWorld().getObjects(Player.class).isEmpty()) return;
         Actor player = (Actor)getWorld().getObjects(Player.class).get(0);
         turnTowards(player.getX(), player.getY());

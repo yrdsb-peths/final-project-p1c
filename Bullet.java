@@ -16,9 +16,8 @@ public class Bullet extends Actor
     public void act()
     {   
         move(5);
-        MyWorld world = (MyWorld) getWorld();
         if(isAtEdge()){
-            world.removeObject(this);
+            getWorld().removeObject(this);
         }
         else if (isTouching(Enemy.class)){
             removeTouching(Enemy.class);
