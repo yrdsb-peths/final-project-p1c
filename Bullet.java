@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bullet extends Actor
 {
-    public static int weaponNum = 3;
+    public static int weaponNum = 2;
     public int hitsT2 = 2;
     public int hitsT3 = 3;
     GreenfootImage T1 = new GreenfootImage("coconut1.png");
@@ -19,19 +19,13 @@ public class Bullet extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */public void act()
     {   
-        switch (weaponNum)
-        {
-            case 1: coconutT1();
-            case 2: coconutT2();
-            case 3: coconutT3();
-        }
         
-        updateImage();
+        updateCoconut();
     }
     
     private void coconutT1()
     {
-        move(3);
+        move(7);
         if(isAtEdge()){
             getWorld().removeObject(this);
         }
@@ -42,7 +36,7 @@ public class Bullet extends Actor
     }
     private void coconutT2()
     {
-        move(5);
+        move(11);
         if(isAtEdge()){
             getWorld().removeObject(this);
         }
@@ -58,7 +52,7 @@ public class Bullet extends Actor
     }
     private void coconutT3()
     {
-        move(7);
+        move(15);
         if(isAtEdge()){
             getWorld().removeObject(this);
         }
@@ -72,14 +66,23 @@ public class Bullet extends Actor
             hitsT3 = 3;
         }
     }
-    
-    private void updateImage()
+    private void updateCoconut()
     {
-        switch(weaponNum)
+        if(weaponNum == 1)
         {
-            case 1: setImage(T1);
-            case 2: setImage(T2);
-            case 3: setImage(T3);
+            coconutT1();
+            setImage(T1);
+        }
+        else if(weaponNum == 2)
+        {
+            coconutT2();
+            setImage(T2);
+        }
+        else if(weaponNum == 3)
+        {
+            coconutT3();
+            setImage(T3);
         }
     }
+    
 }

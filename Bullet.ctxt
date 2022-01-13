@@ -11,5 +11,5 @@ comment3.target=void\ coconutT2()
 comment4.params=
 comment4.target=void\ coconutT3()
 comment5.params=
-comment5.target=void\ updateImage()
+comment5.target=void\ updateCoconut()
 numComments=6
