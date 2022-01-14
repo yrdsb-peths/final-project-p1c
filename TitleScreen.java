@@ -18,13 +18,19 @@ public class TitleScreen extends World
         super(1200, 700, 1);
         Label start = new Label("Start", 85);
         Label spacebar = new Label("Hit spacebar to begin", 60);
-        addObject(start, 400, 250);
-        addObject(spacebar, 400, 350);
+        Label shop = new Label("Hit S to open the shop", 60);
+        addObject(shop, 600, 450);
+        addObject(start, 600, 250);
+        addObject(spacebar, 600, 350);
     }
     public void act(){
         if(Greenfoot.isKeyDown("space"))
         {
             Greenfoot.setWorld(new MyWorld());
+        }
+        if(Greenfoot.isKeyDown("S"))
+        {
+            Greenfoot.setWorld(new ShopWorld());
         }
     }
 }
