@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     int enemyTimer = 0;
-    int numEnemies = 100;
+    int numEnemies = 5;
     /**
      * Constructor for objects of class MyWorld.
      * 

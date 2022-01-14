@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class ShopWorld extends World
 {
     public static int money = 0;
+    public static boolean flamingbought = false;
+    public static boolean steelbought = false;
     private int heightOffset = 50;  // the height of the buttons
     private int fontSize = heightOffset;  // font size of button text
     private int hoverTextFontSize = 20;
@@ -27,7 +29,7 @@ public class ShopWorld extends World
         hoverTextLabel = new Label("", hoverTextFontSize);
         Label gold = new Label("Gold: " + money, 35);
         addObject(gold, 600, 250);
-        addObject(flaming, 400, 450);
+        addObject(flaming, 400  , 450);
         addObject(steel, 800, 450);
     }
 
