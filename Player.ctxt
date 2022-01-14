@@ -12,6 +12,4 @@ comment4.params=mouse
 comment4.target=void\ shoot(greenfoot.MouseInfo)
 comment5.params=mi
 comment5.target=void\ turnTowards(greenfoot.MouseInfo)
-comment6.params=
-comment6.target=int\ getCooldown()
-numComments=7
+numComments=6
