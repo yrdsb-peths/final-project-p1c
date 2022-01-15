@@ -12,6 +12,10 @@ public class Player extends Actor
     public int shootCooldown = 0;
     boolean mouseIsDown = false;
     MouseInfo mouse = Greenfoot.getMouseInfo();
+    public int armourNum = 1;
+    GreenfootImage T1 = new GreenfootImage("o1.png");
+    GreenfootImage T2 = new GreenfootImage("o2.png");
+    GreenfootImage T3 = new GreenfootImage("o3.png");
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -26,6 +30,7 @@ public class Player extends Actor
         {
             turnTowards(mouse);
         }
+        updateMonkey();
     }    
 
     private void move()
@@ -80,5 +85,36 @@ public class Player extends Actor
     public void turnTowards (MouseInfo mi)
     {
         turnTowards(mi.getX(), mi.getY());
+    }
+    
+    public void updateMonkey()
+    {
+        if(armourNum == 1)
+        {
+            monkeyT1();
+            setImage(T1);
+        }
+        else if(armourNum == 2)
+        {
+            monkeyT2();
+            setImage(T2);
+        }
+        else if(armourNum == 3)
+        {
+            monkeyT3();
+            setImage(T3);
+        }
+    }
+    public void monkeyT1()
+    {
+        
+    }
+    public void monkeyT2()
+    {
+        
+    }
+    public void monkeyT3()
+    {
+        
     }
 }
