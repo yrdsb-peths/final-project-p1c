@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name)
  * @version (a version number or a date)
  */
-public class LevelThree extends World
+public class LevelThree extends GameWorld
 {
     int enemyTimerThree = 0;
     int numEnemiesThree = 20;
@@ -17,9 +17,9 @@ public class LevelThree extends World
     public LevelThree()
     {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 650, 1);
+        //super(800, 650, 1);
         Player player = new Player();
-        addObject(player, 400, 400);
+        addObject(player, 600, 350);
     }
 
     public void act()
