@@ -21,7 +21,7 @@ public class Bullet extends Actor
     {   
         updateCoconut();
     }
-    
+
     private void coconutT1()
     {
         move(7);
@@ -30,9 +30,12 @@ public class Bullet extends Actor
         }
         else if (isTouching(Enemy.class)){
             removeTouching(Enemy.class);
+            Player player = new Player();
+            player.score++;
             getWorld().removeObject(this);
         }
     }
+
     private void coconutT2()
     {
         move(11);
@@ -41,15 +44,18 @@ public class Bullet extends Actor
         }
         else if (isTouching(Enemy.class)){
             removeTouching(Enemy.class);
+            Player player = new Player();
+            player.score++;
             hitsT2--;
             if(hitsT2 == 0)
             {
                 getWorld().removeObject(this);
                 hitsT2 = 2;
             }
-            
+
         }
     }
+
     private void coconutT3()
     {
         move(15);
@@ -58,6 +64,8 @@ public class Bullet extends Actor
         }
         else if (isTouching(Enemy.class)){
             removeTouching(Enemy.class);
+            Player player = new Player();
+            player.score++;
             hitsT3--;
             if(hitsT3 == 0)
             {
@@ -66,6 +74,7 @@ public class Bullet extends Actor
             }
         }
     }
+
     public void updateCoconut()
     {
         if(weaponNum == 1)
@@ -84,5 +93,5 @@ public class Bullet extends Actor
             setImage(T3);
         }
     }
-    
+
 }

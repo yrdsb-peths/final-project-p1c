@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
+    public static int score = 0;
     public int dashTimer = 0;
     public int shootCooldown = 0;
     boolean mouseIsDown = false;

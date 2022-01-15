@@ -13,10 +13,14 @@ public class Button extends Actor
     // The current state of the button.
     // The initial state of the button is UP
     private State state = State.UP;
-    
+
     // The text to display on the button
     private String text;
-
+    public int item;
+    public static boolean flamingbought = false;
+    public static boolean steelbought = false;
+    public static boolean hatbought = false;
+    public static boolean armorbought = false;
     // Assign descriptive names to numbers
     // Basically, UP = 0, DOWN = 1, HOVER = 2, NONE = 3
     private enum State
@@ -30,7 +34,7 @@ public class Button extends Actor
      * @param width The width of the button
      * @param height the height of the button
      */
-    public Button(String text, int width, int height)
+    public Button(String text, int width, int height, int buttontype)
     {
         // Scale the image
         up.scale(width, height);
@@ -39,11 +43,12 @@ public class Button extends Actor
 
         // Show text on the button
         this.text = text;
-        Label label = new Label(text, height);
-        up.drawImage(label.getImage(), width/3, 0);
-        down.drawImage(label.getImage(), width/3, 0);
-        hover.drawImage(label.getImage(), width/3, 0);
+        Label label = new Label(text, 30);
+        up.drawImage(label.getImage(), width/3 -45, 7);
+        down.drawImage(label.getImage(), width/3 -45, 7);
+        hover.drawImage(label.getImage(), width/3 -45, 7);
         setImage(up);
+        item = buttontype;
     }
 
     public void act()
@@ -67,7 +72,33 @@ public class Button extends Actor
             {
                 state = state.HOVER;
                 // Update the screen with the correct canvas
-                
+                ShopWorld shop = new ShopWorld();
+                if(item == 1 && shop.money >= 50 && flamingbought == false){
+                    shop.money = shop.money - 50;
+                    Bullet bullet = new Bullet();
+                    bullet.weaponNum = 2;
+                    flamingbought = true;
+                }
+                if(item == 2 && shop.money >= 100 && steelbought == false){
+                    shop.money = shop.money - 100;
+                    Bullet bullet = new Bullet();
+                    bullet.weaponNum = 3;
+                    steelbought = true;
+                    flamingbought = true;
+                }
+                if(item == 3 && shop.money >= 30 && hatbought == false){
+                    shop.money = shop.money - 30;
+                    Player player = new Player();
+                    player.armourNum = 2;
+                    hatbought = true;
+                }
+                if(item == 4 && shop.money >= 150 && armorbought == false){
+                    shop.money = shop.money - 150;
+                    Player player = new Player();
+                    player.armourNum = 3;
+                    armorbought = true;
+                    hatbought = true;
+                }
             }
             else
             {
@@ -76,7 +107,21 @@ public class Button extends Actor
         }
         else if(info.getActor() != null)
         {
-            state = state.UP;   
+            if(item == 1 && flamingbought == true){
+                state = state.DOWN;
+            }
+            if(item == 2 && steelbought == true){
+                state = state.DOWN;
+            }
+            if(item == 3 && hatbought == true){
+                state = state.DOWN;
+            }
+            if(item == 4 && armorbought == true){
+                state =state.DOWN;
+            }
+            else{
+                state = state.UP;
+            }  
         }
 
         // Update the button image
