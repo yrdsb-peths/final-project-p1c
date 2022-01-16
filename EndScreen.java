@@ -21,7 +21,7 @@ public class EndScreen extends World
         Player player = new Player();
         int score = player.score;
         Label finalscore = new Label("Score: " + score, 60);
-        addObject(finalscore, 600, 500);
+        addObject(finalscore, 600, 500);    
         addObject(theend, 600, 250);
         addObject(spacebar, 600, 350);
     }
