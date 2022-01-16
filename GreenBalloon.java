@@ -16,6 +16,18 @@ public class GreenBalloon extends Enemy
     {
         // Add your action code here.
         trackMonkey();
-        move(4);
+        move(3);
+        if (isTouching(Player.class)){
+            if(Health.life.peek() > 2)
+            {
+                Health.life.pop();
+                Health.life.pop();
+            }
+            else
+            {
+                Health.die();
+            }
+            getWorld().removeObject(this);
+        }
     }
 }

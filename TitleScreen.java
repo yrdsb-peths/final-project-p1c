@@ -45,13 +45,13 @@ public class TitleScreen extends World
         addObject(ape4, 1050,550);
         
         MenuNut nut1 = new MenuNut(-10);
-        addObject(nut1, 400,660);
+        addObject(nut1, 400,650);
         MenuNut nut2 = new MenuNut(10);
-        addObject(nut2, 800,580);
+        addObject(nut2, 800,650);
         MenuNut nut3 = new MenuNut(10);
-        addObject(nut3, 100,330);
+        addObject(nut3, 100,350);
         MenuNut nut4 = new MenuNut(-10);
-        addObject(nut4, 1100,370);
+        addObject(nut4, 1100,350);
         
         startB = new Button();
         addObject(startB,600,350);
@@ -71,6 +71,10 @@ public class TitleScreen extends World
         if(Greenfoot.isKeyDown("S"))
         {
             Greenfoot.setWorld(new ShopWorld());
+        }
+        if(Greenfoot.isKeyDown("I"))
+        {
+            Greenfoot.setWorld(new InfoWorld());
         }
         buttonCheck();
     }

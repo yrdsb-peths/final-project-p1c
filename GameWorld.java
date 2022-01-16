@@ -14,6 +14,8 @@ public class GameWorld extends World
     Button wOne;
     Button wTwo;
     Button wThree;
+    
+    Label waveCount;
     /**
      * Constructor for objects of class GameWorld.
      * 
@@ -24,6 +26,7 @@ public class GameWorld extends World
         super(1200, 700, 1); 
         
         setPaintOrder(Button.class, Label.class);
+        
         
         wOne = new Button();
         wTwo = new Button();
@@ -66,7 +69,7 @@ public class GameWorld extends World
     {
         if(timer == 0) return;
         Enemy balloon = new Enemy();
-        if(wave % 10 == 0)
+        if(wave % 7 == 0)
         {
             balloon = new OrangeBalloon();
         }
@@ -83,22 +86,22 @@ public class GameWorld extends World
             balloon = new RedBalloon();
         }
         
-        if(timer % 400 == 0)
+        if(timer % 100 == 0)
         {
             addObject(balloon, randomLocationX(), 0);
             Greenfoot.delay(10);
         }
-        else if(timer % 400 == (100/level))
+        else if(timer % 100 == (25/level))
         {
             addObject(balloon, randomLocationX(), 700);
             Greenfoot.delay(10);
         }
-        else if(timer % 400 == (200/level))
+        else if(timer % 100 == (50/level))
         {
             addObject(balloon, 0, randomLocationY());
             Greenfoot.delay(10);
         }
-        else if(timer % 400 == (300/level))
+        else if(timer % 100 == (75/level))
         {
             addObject(balloon, 1200, randomLocationY());
             Greenfoot.delay(10);
@@ -118,11 +121,4 @@ public class GameWorld extends World
         return y;
     }
     
-    public void checkDeath()
-    {
-        //if(Player.health.isEmpty())
-        {
-            Greenfoot.setWorld(new EndScreen());
-        }
-    }
 }

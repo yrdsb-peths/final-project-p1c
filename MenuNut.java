@@ -22,7 +22,7 @@ public class MenuNut extends Bullet
     {
         // Add your action code here.
         turn(spinVal);
-        updateCoconut();
+        updateCoconutImage();
     }
 
 

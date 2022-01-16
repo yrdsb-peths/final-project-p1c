@@ -43,4 +43,8 @@ public class Health extends Actor
             Greenfoot.setWorld(new EndScreen());
         }
     }
+    public static void die()
+    {
+        life.empty();
+    }
 }

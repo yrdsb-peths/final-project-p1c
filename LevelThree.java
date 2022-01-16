@@ -8,8 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class LevelThree extends GameWorld
 {
-    int enemyTimerThree = 0;
-    int numEnemiesThree = 20;
+    int time = 0;
+    int wave = 1;
+    int timer = 400;
+    Label healthLabel;
     /**
      * Constructor for objects of class LevelThree.
      * 
@@ -21,22 +23,29 @@ public class LevelThree extends GameWorld
         removeObjects(getObjects(null));
         Player player = new Player();
         addObject(player, 600, 350);
+        Health health = new Health();
+        addObject(health,70,70);
+        healthLabel = new Label("-", 60);
+        healthLabel.setFillColor(Color.RED);
+        addObject(healthLabel, 120, 70);
+        waveCount = new Label("Wave " + wave, 60);
     }
 
     public void act()
     {
-        if(enemyTimerThree <= 0 && numEnemiesThree > 0)
+        if(time % 300 == 0)
         {
-            int ranyThree = Greenfoot.getRandomNumber(700);
-            Enemy enemyTwo = new Enemy();
-            addObject(enemyTwo, 790, ranyThree);
-            enemyTimerThree = 10;
-            numEnemiesThree--;
+            waveCount.setValue("Wave " + wave);
+            addObject(waveCount, 600,350);
+            spawnBalloons(3,wave,timer);
+            wave++;
+            timer += 100;
+            removeObject(waveCount);
         }
-        enemyTimerThree--;
-        if(getObjects(Enemy.class).size() == 0 && numEnemiesThree == 0){
-            Greenfoot.delay(100);
-            Greenfoot.setWorld(new EndScreen());
+        time++;
+        if(!Health.life.isEmpty())
+        {
+            healthLabel.setValue(Health.life.peek());
         }
     }
 }

@@ -18,7 +18,6 @@ public class Player extends Actor
     GreenfootImage T2 = new GreenfootImage("o2.png");
     GreenfootImage T3 = new GreenfootImage("o3.png");
     
-    
     public Player()
     {
         

@@ -9,8 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Bullet extends Actor
 {
     public static int weaponNum = 1;
-    public int hitsT2 = 2;
-    public int hitsT3 = 3;
+    public int hitsT1 = 2;
+    public int hitsT2 = 3;
+    public int hitsT3 = 5;
     GreenfootImage T1 = new GreenfootImage("coconut1.png");
     GreenfootImage T2 = new GreenfootImage("coconut2.png");
     GreenfootImage T3 = new GreenfootImage("coconut3.png");
@@ -24,21 +25,42 @@ public class Bullet extends Actor
 
     private void coconutT1()
     {
-        move(7);
+        move(9);
         if(isAtEdge()){
             getWorld().removeObject(this);
+        }
+        else if (isTouching(OrangeBalloon.class))
+        {
+            OrangeBalloon.health--;
+            if(OrangeBalloon.health == 0)
+            {
+                removeTouching(Enemy.class);
+                Player player = new Player();
+                player.score++;
+                hitsT1--;
+                if(hitsT1 == 0)
+                {
+                    getWorld().removeObject(this);
+                    hitsT1 = 2;
+                }
+            }
         }
         else if (isTouching(Enemy.class)){
             removeTouching(Enemy.class);
             Player player = new Player();
             player.score++;
-            getWorld().removeObject(this);
+            hitsT1--;
+            if(hitsT1 == 0)
+            {
+                getWorld().removeObject(this);
+                hitsT1 = 2;
+            }
         }
     }
 
     private void coconutT2()
     {
-        move(11);
+        move(14);
         if(isAtEdge()){
             getWorld().removeObject(this);
         }
@@ -50,7 +72,7 @@ public class Bullet extends Actor
             if(hitsT2 == 0)
             {
                 getWorld().removeObject(this);
-                hitsT2 = 2;
+                hitsT2 = 3;
             }
 
         }
@@ -58,7 +80,7 @@ public class Bullet extends Actor
 
     private void coconutT3()
     {
-        move(15);
+        move(20);
         if(isAtEdge()){
             getWorld().removeObject(this);
         }
@@ -70,28 +92,41 @@ public class Bullet extends Actor
             if(hitsT3 == 0)
             {
                 getWorld().removeObject(this);
-                hitsT3 = 3;
+                hitsT3 = 5;
             }
         }
     }
 
     public void updateCoconut()
     {
+        updateCoconutImage();
         if(weaponNum == 1)
         {
             coconutT1();
-            setImage(T1);
         }
         else if(weaponNum == 2)
         {
             coconutT2();
-            setImage(T2);
         }
         else if(weaponNum == 3)
         {
             coconutT3();
-            setImage(T3);
         }
     }
 
+    public void updateCoconutImage()
+    {
+        if(weaponNum == 1)
+        {
+            setImage(T1);
+        }
+        else if(weaponNum == 2)
+        {
+            setImage(T2);
+        }
+        else if(weaponNum == 3)
+        {
+            setImage(T3);
+        }
+    }
 }

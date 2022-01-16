@@ -9,11 +9,11 @@ import java.util.Iterator;
  */
 public class LevelOne extends GameWorld
 {
-    int enemyTimer = 0;
-    int numEnemies = 5;
     int time = 0;
     int wave = 1;
+    int timer = 200;
     Label healthLabel;
+    
     /**
      * Constructor for objects of class LevelOne.
      * 
@@ -30,31 +30,19 @@ public class LevelOne extends GameWorld
         healthLabel = new Label("-", 60);
         healthLabel.setFillColor(Color.RED);
         addObject(healthLabel, 120, 70);
+        waveCount = new Label("Wave " + wave, 60);
     }
 
     public void act()
     {
-        /*
-        Actor player = getObjects(Player.class).get(0); 
-        if(enemyTimer <= 0 && numEnemies > 0)
+        if(time % 400 == 0)
         {
-        int ranx = Greenfoot.getRandomNumber(800);
-        int rany = Greenfoot.getRandomNumber(700);
-        Enemy enemy = new Enemy();
-        addObject(enemy, 790, rany);
-        enemyTimer = 60;
-        numEnemies--;
-        }
-        enemyTimer--;
-        if(getObjects(Enemy.class).size() == 0 && numEnemies == 0){
-        Greenfoot.delay(10);
-        Greenfoot.setWorld(new LevelTwo());
-        }
-         */
-        if(time % 300 == 0)
-        {
-            spawnBalloons(1,wave,800);
+            waveCount.setValue("Wave " + wave);
+            addObject(waveCount, 600,350);
+            spawnBalloons(1,wave,timer);
             wave++;
+            timer += 25;
+            removeObject(waveCount);
         }
         time++;
         if(!Health.life.isEmpty())

@@ -17,8 +17,8 @@ public class ShopWorld extends World
     private Label hoverTextLabel;
     Label flaming = new Label("Flaming Coconut", 35);
     Label steel = new Label("Steel Coconut", 35);
-    Label hat = new Label("Hat", 30);
-    Label armor = new Label("Armor", 30);
+    Label hat = new Label("Fresh Hat", 30);
+    Label armor = new Label("Military Gear", 30);
     /**
      * Constructor for objects of class ShopWorld.
      * 
