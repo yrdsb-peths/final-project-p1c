@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ShopWorld extends World
 {
-    public static int money = 1000; //Placeholder numbre for testing gold
+    public static int money = 0; //Placeholder numbre for testing gold
     public static boolean flamingbought = false;
     public static boolean steelbought = false;
     private int heightOffset = 25;  // the height of the buttons

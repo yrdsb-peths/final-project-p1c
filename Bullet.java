@@ -32,6 +32,8 @@ public class Bullet extends Actor
         else if (isTouching(OrangeBalloon.class))
         {
             OrangeBalloon.health--;
+            ShopWorld shop = new ShopWorld();
+            shop.money = shop.money + 5;
             if(OrangeBalloon.health == 0)
             {
                 removeTouching(Enemy.class);
@@ -43,6 +45,45 @@ public class Bullet extends Actor
                     getWorld().removeObject(this);
                     hitsT1 = 2;
                 }
+            }
+        }
+        else if (isTouching(GreenBalloon.class)){
+            removeTouching(GreenBalloon.class);
+            ShopWorld shop = new ShopWorld();
+            shop.money = shop.money + 4;
+            Player player = new Player();
+            player.score++;
+            hitsT1--;
+            if(hitsT1 == 0)
+            {
+                getWorld().removeObject(this);
+                hitsT1 = 2;
+            }
+        }
+        else if (isTouching(BlueBalloon.class)){
+            removeTouching(BlueBalloon.class);
+            ShopWorld shop = new ShopWorld();
+            shop.money = shop.money + 2;
+            Player player = new Player();
+            player.score++;
+            hitsT1--;
+            if(hitsT1 == 0)
+            {
+                getWorld().removeObject(this);
+                hitsT1 = 2;
+            }
+        }
+        else if (isTouching(RedBalloon.class)){
+            removeTouching(RedBalloon.class);
+            ShopWorld shop = new ShopWorld();
+            shop.money = shop.money + 1;
+            Player player = new Player();
+            player.score++;
+            hitsT1--;
+            if(hitsT1 == 0)
+            {
+                getWorld().removeObject(this);
+                hitsT1 = 2;
             }
         }
         else if (isTouching(Enemy.class)){

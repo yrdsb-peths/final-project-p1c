@@ -11,8 +11,6 @@ public class TitleScreen extends World
     Button startB;
     Button infoB;
     Button shopB;
-    
-    
     /**
      * Constructor for objects of class TitleScreen.
      * 
