@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.Iterator;
 
 /**
  * Write a description of class RedBalloon here.
@@ -15,5 +16,11 @@ public class RedBalloon extends Enemy
     public void act()
     {
         // Add your action code here.
+        trackMonkey();
+        move(2);
+        if (isTouching(Player.class)){
+            Health.life.pop();
+            getWorld().removeObject(this);
+        }
     }
 }

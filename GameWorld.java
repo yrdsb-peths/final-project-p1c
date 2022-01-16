@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 
 /**
  * Write a description of class GameWorld here.
@@ -9,6 +10,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class GameWorld extends World
 {
     public static int world = 1;
+    
+    Button wOne;
+    Button wTwo;
+    Button wThree;
     /**
      * Constructor for objects of class GameWorld.
      * 
@@ -17,19 +22,42 @@ public class GameWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1); 
+        
+        setPaintOrder(Button.class, Label.class);
+        
+        wOne = new Button();
+        wTwo = new Button();
+        wThree = new Button();
+        Label one = new Label("World 1!", 75);
+        Label two = new Label("World 2!", 75);
+        Label three = new Label("World 3!", 75);
+        
+        addObject(wOne, 200, 370);
+        addObject(new Label("<1>", 65), 200, 370);
+        addObject(wTwo, 600, 370);
+        addObject(new Label("<2>", 65), 600, 370);
+        addObject(wThree, 1000, 370);
+        addObject(new Label("<3>", 65), 1000, 370);
+        
+        addObject(one, 200, 300);
+        addObject(two, 600, 300);
+        addObject(three, 1000, 300);
     }
     public void act()
     {
-        if(Greenfoot.isKeyDown("1"))
+        if(Greenfoot.isKeyDown("1") || wOne.touchingCursor())
         {
+            removeObjects(getObjects(null));
             Greenfoot.setWorld(new LevelOne());
         }
-        if(Greenfoot.isKeyDown("2"))
+        if(Greenfoot.isKeyDown("2") || wTwo.touchingCursor())
         {
+            removeObjects(getObjects(null));
             Greenfoot.setWorld(new LevelTwo());
         }
-        if(Greenfoot.isKeyDown("3"))
+        if(Greenfoot.isKeyDown("3") || wThree.touchingCursor())
         {
+            removeObjects(getObjects(null));
             Greenfoot.setWorld(new LevelThree());
         }
     }
@@ -88,5 +116,13 @@ public class GameWorld extends World
     {
         int y = Greenfoot.getRandomNumber(700);
         return y;
+    }
+    
+    public void checkDeath()
+    {
+        //if(Player.health.isEmpty())
+        {
+            Greenfoot.setWorld(new EndScreen());
+        }
     }
 }

@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.Iterator;
 
 /**
  * Write a description of class LevelOne here.
@@ -12,6 +13,7 @@ public class LevelOne extends GameWorld
     int numEnemies = 5;
     int time = 0;
     int wave = 1;
+    Label healthLabel;
     /**
      * Constructor for objects of class LevelOne.
      * 
@@ -20,9 +22,14 @@ public class LevelOne extends GameWorld
     {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         //super(800, 650, 1);
+        removeObjects(getObjects(null));
         Player player = new Player();
         addObject(player, 600, 350);
-        
+        Health health = new Health();
+        addObject(health,70,70);
+        healthLabel = new Label("-", 60);
+        healthLabel.setFillColor(Color.RED);
+        addObject(healthLabel, 120, 70);
     }
 
     public void act()
@@ -50,5 +57,9 @@ public class LevelOne extends GameWorld
             wave++;
         }
         time++;
+        if(!Health.life.isEmpty())
+        {
+            healthLabel.setValue(Health.life.peek());
+        }
     }
 }

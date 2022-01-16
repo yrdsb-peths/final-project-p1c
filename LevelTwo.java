@@ -18,6 +18,7 @@ public class LevelTwo extends GameWorld
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         //super(800, 650, 1);
+        removeObjects(getObjects(null));
         Player player = new Player();
         addObject(player, 600, 350);
     }

@@ -27,7 +27,7 @@ public class ShopWorld extends World
     {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
-        createButtons();
+        createShopButtons();
         hoverTextLabel = new Label("", hoverTextFontSize);
         Label gold = new Label("Gold: " + money, 35);
         addObject(gold, 600, 50);
@@ -48,7 +48,7 @@ public class ShopWorld extends World
      * Create and update the labels
      * This method moves labels to the "front" so they can be clicked
      */
-    private void createButtons()
+    private void createShopButtons()
     {
         // label settings
         int x = 500;
@@ -61,16 +61,16 @@ public class ShopWorld extends World
 
         // Create the buttons
         String weaponupgrade = "Buy (50 gold)";
-        Button button = new Button(weaponupgrade, buttonWidth, buttonHeight, 1);
+        ShopButton button = new ShopButton(weaponupgrade, buttonWidth, buttonHeight, 1);
         addObject(button, 400, y);
         String weaponupgradetwo = "Buy (100 gold)";
-        Button buttontwo = new Button(weaponupgradetwo, buttonWidth, buttonHeight, 2);
+        ShopButton buttontwo = new ShopButton(weaponupgradetwo, buttonWidth, buttonHeight, 2);
         addObject(buttontwo, 800, y);
         String hatupgrade = "Buy (30 gold)";
-        Button buttonthree = new Button(hatupgrade, buttonWidth, buttonHeight, 3);
+        ShopButton buttonthree = new ShopButton(hatupgrade, buttonWidth, buttonHeight, 3);
         addObject(buttonthree, 400, y - 300);
         String armorupgrade = "Buy (150 gold)";
-        Button buttonfour = new Button(armorupgrade, buttonWidth, buttonHeight, 4);
+        ShopButton buttonfour = new ShopButton(armorupgrade, buttonWidth, buttonHeight, 4);
         addObject(buttonfour, 800, y - 300);
     }
 

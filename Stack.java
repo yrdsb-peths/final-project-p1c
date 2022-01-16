@@ -28,6 +28,11 @@ public class Stack<E> implements Iterable<E>
         first = first.next;
         return item;
     }
+    
+    public E peek()
+    {
+        return first.item;
+    }
 
     // To make this data structure work with for-each loops
     public Iterator<E> iterator() {

@@ -15,5 +15,7 @@ public class OrangeBalloon extends Enemy
     public void act()
     {
         // Add your action code here.
+        trackMonkey();
+        move(5);
     }
 }
