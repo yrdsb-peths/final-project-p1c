@@ -29,8 +29,8 @@ public class ShopWorld extends World
         super(1200, 700, 1);
         createShopButtons();
         hoverTextLabel = new Label("", hoverTextFontSize);
-        Label gold = new Label("Gold: " + money, 35);
-        addObject(gold, 600, 50);
+        Label gold = new Label("Gold: " + money, 50);
+        addObject(gold, 1050, 100);
         addObject(flaming, 400  , 450);
         addObject(steel, 800, 450);
         addObject(hat, 400, 150);
