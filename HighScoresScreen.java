@@ -15,7 +15,7 @@ public class HighScoresScreen extends World
      * 
      */
     public HighScoresScreen()
-    {    
+    {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
         setup(nums);
@@ -23,11 +23,11 @@ public class HighScoresScreen extends World
         Player player = new Player();
         int score = player.score;
         if(score < nums[0] && score > nums[6]){
-            //Sort it into array
+            //make array longer
         }
         if(score > nums[0]){
             nums[0] = score;
-            //Move everything down
+            
         }
         Label scorelabel = new Label ("Score: " + score, 60);
         addObject(scorelabel, 400, 250);
