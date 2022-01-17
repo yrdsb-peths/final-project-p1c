@@ -32,14 +32,14 @@ public class Bullet extends Actor
         else if (isTouching(OrangeBalloon.class))
         {
             OrangeBalloon.health--;
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money + 5;
             if(OrangeBalloon.health == 0)
             {
                 removeTouching(Enemy.class);
                 Player player = new Player();
                 player.score++;
                 hitsT1--;
+                ShopWorld shop = new ShopWorld();
+                shop.money = shop.money + 5;
                 if(hitsT1 == 0)
                 {
                     getWorld().removeObject(this);
@@ -108,14 +108,14 @@ public class Bullet extends Actor
         else if (isTouching(OrangeBalloon.class))
         {
             OrangeBalloon.health--;
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money + 5;
             if(OrangeBalloon.health == 0)
             {
                 removeTouching(Enemy.class);
                 Player player = new Player();
                 player.score++;
                 hitsT1--;
+                ShopWorld shop = new ShopWorld();
+                shop.money = shop.money + 5;
                 if(hitsT1 == 0)
                 {
                     getWorld().removeObject(this);
@@ -185,13 +185,13 @@ public class Bullet extends Actor
         else if (isTouching(OrangeBalloon.class))
         {
             OrangeBalloon.health--;
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money + 5;
             if(OrangeBalloon.health == 0)
             {
                 removeTouching(Enemy.class);
                 Player player = new Player();
                 player.score++;
+                ShopWorld shop = new ShopWorld();
+                shop.money = shop.money + 5;
                 hitsT1--;
                 if(hitsT1 == 0)
                 {

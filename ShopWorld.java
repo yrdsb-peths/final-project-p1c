@@ -16,11 +16,15 @@ public class ShopWorld extends World
     public static boolean steelbought = false;
     public static boolean hatbought = false;
     public static boolean armorbought = false;
-    public static int money = 0;
+    public static int money = 1000;
     Label flaming = new Label("Flaming Coconut", 35);
     Label steel = new Label("Steel Coconut", 35);
     Label hat = new Label("Fresh Hat", 30);
     Label armor = new Label("Military Gear", 30);
+    Label buyOne;
+    Label buyTwo;
+    Label buyThree;
+    Label buyFour;
     /**
      * Constructor for objects of class ShopWorld.
      * 
@@ -30,10 +34,30 @@ public class ShopWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
         Label gold = new Label("Gold: " + money, 50);
-        Label buyOne = new Label("Buy: 50 gold", 40);
-        Label buyTwo = new Label("Buy: 100 gold", 40);
-        Label buyThree = new Label("Buy: 30 gold", 40);
-        Label buyFour = new Label("Buy: 150 gold", 40);
+        if(flamingbought == true){
+            buyOne = new Label("BOUGHT", 40);
+        }
+        else{
+            buyOne = new Label("Buy: 50 gold", 40);
+        }
+        if(steelbought == true){
+            buyTwo = new Label("BOUGHT", 40);
+        }
+        else{
+            buyTwo = new Label("Buy: 100 gold", 40);
+        }
+        if(hatbought == true){
+            buyThree = new Label("BOUGHT", 40);
+        }
+        else{
+            buyThree = new Label("Buy: 30 gold", 40);
+        }
+        if(armorbought == true){
+            buyFour = new Label("BOUGHT", 40);
+        }
+        else{
+            buyFour = new Label("Buy: 150 gold", 40);
+        }
         //Add labels
         addObject(gold, 1050, 100);
         addObject(flaming, 400  , 450);
