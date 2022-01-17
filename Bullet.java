@@ -105,6 +105,63 @@ public class Bullet extends Actor
         if(isAtEdge()){
             getWorld().removeObject(this);
         }
+        else if (isTouching(OrangeBalloon.class))
+        {
+            OrangeBalloon.health--;
+            ShopWorld shop = new ShopWorld();
+            shop.money = shop.money + 5;
+            if(OrangeBalloon.health == 0)
+            {
+                removeTouching(Enemy.class);
+                Player player = new Player();
+                player.score++;
+                hitsT1--;
+                if(hitsT1 == 0)
+                {
+                    getWorld().removeObject(this);
+                    hitsT1 = 2;
+                }
+            }
+        }
+        else if (isTouching(GreenBalloon.class)){
+            removeTouching(GreenBalloon.class);
+            ShopWorld shop = new ShopWorld();
+            shop.money = shop.money + 4;
+            Player player = new Player();
+            player.score++;
+            hitsT1--;
+            if(hitsT1 == 0)
+            {
+                getWorld().removeObject(this);
+                hitsT1 = 2;
+            }
+        }
+        else if (isTouching(BlueBalloon.class)){
+            removeTouching(BlueBalloon.class);
+            ShopWorld shop = new ShopWorld();
+            shop.money = shop.money + 2;
+            Player player = new Player();
+            player.score++;
+            hitsT1--;
+            if(hitsT1 == 0)
+            {
+                getWorld().removeObject(this);
+                hitsT1 = 2;
+            }
+        }
+        else if (isTouching(RedBalloon.class)){
+            removeTouching(RedBalloon.class);
+            ShopWorld shop = new ShopWorld();
+            shop.money = shop.money + 1;
+            Player player = new Player();
+            player.score++;
+            hitsT1--;
+            if(hitsT1 == 0)
+            {
+                getWorld().removeObject(this);
+                hitsT1 = 2;
+            }
+        }
         else if (isTouching(Enemy.class)){
             removeTouching(Enemy.class);
             Player player = new Player();
@@ -124,6 +181,63 @@ public class Bullet extends Actor
         move(20);
         if(isAtEdge()){
             getWorld().removeObject(this);
+        }
+        else if (isTouching(OrangeBalloon.class))
+        {
+            OrangeBalloon.health--;
+            ShopWorld shop = new ShopWorld();
+            shop.money = shop.money + 5;
+            if(OrangeBalloon.health == 0)
+            {
+                removeTouching(Enemy.class);
+                Player player = new Player();
+                player.score++;
+                hitsT1--;
+                if(hitsT1 == 0)
+                {
+                    getWorld().removeObject(this);
+                    hitsT1 = 2;
+                }
+            }
+        }
+        else if (isTouching(GreenBalloon.class)){
+            removeTouching(GreenBalloon.class);
+            ShopWorld shop = new ShopWorld();
+            shop.money = shop.money + 4;
+            Player player = new Player();
+            player.score++;
+            hitsT1--;
+            if(hitsT1 == 0)
+            {
+                getWorld().removeObject(this);
+                hitsT1 = 2;
+            }
+        }
+        else if (isTouching(BlueBalloon.class)){
+            removeTouching(BlueBalloon.class);
+            ShopWorld shop = new ShopWorld();
+            shop.money = shop.money + 2;
+            Player player = new Player();
+            player.score++;
+            hitsT1--;
+            if(hitsT1 == 0)
+            {
+                getWorld().removeObject(this);
+                hitsT1 = 2;
+            }
+        }
+        else if (isTouching(RedBalloon.class)){
+            removeTouching(RedBalloon.class);
+            ShopWorld shop = new ShopWorld();
+            shop.money = shop.money + 1;
+            Player player = new Player();
+            player.score++;
+            hitsT1--;
+            if(hitsT1 == 0)
+            {
+                getWorld().removeObject(this);
+                hitsT1 = 2;
+            }
         }
         else if (isTouching(Enemy.class)){
             removeTouching(Enemy.class);
