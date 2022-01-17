@@ -30,10 +30,10 @@ public class ShopWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
         Label gold = new Label("Gold: " + money, 50);
-        Label buyOne = new Label("Buy", 65);
-        Label buyTwo = new Label("Buy", 65);
-        Label buyThree = new Label("Buy", 65);
-        Label buyFour = new Label("Buy", 65);
+        Label buyOne = new Label("Buy: 50 gold", 40);
+        Label buyTwo = new Label("Buy: 100 gold", 40);
+        Label buyThree = new Label("Buy: 30 gold", 40);
+        Label buyFour = new Label("Buy: 150 gold", 40);
         //Add labels
         addObject(gold, 1050, 100);
         addObject(flaming, 400  , 450);
