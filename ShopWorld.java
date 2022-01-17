@@ -16,7 +16,7 @@ public class ShopWorld extends World
     public static boolean steelbought = false;
     public static boolean hatbought = false;
     public static boolean armorbought = false;
-    public static int money = 1000;
+    public static int money = 0;
     Label flaming = new Label("Flaming Coconut", 35);
     Label steel = new Label("Steel Coconut", 35);
     Label hat = new Label("Fresh Hat", 30);
