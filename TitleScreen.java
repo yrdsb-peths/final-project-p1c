@@ -8,9 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TitleScreen extends World
 {
-    Button startB;
-    Button infoB;
-    Button shopB;
+    Button startB; //Button for start game
+    Button infoB; //Button for instructions page
+    Button shopB; //Button for shop page
     /**
      * Constructor for objects of class TitleScreen.
      * 

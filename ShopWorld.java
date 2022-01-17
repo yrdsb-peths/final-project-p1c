@@ -8,13 +8,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ShopWorld extends World
 {
-    public static int money = 0; //Placeholder numbre for testing gold
+    Button flamingB;
+    Button steelB;
+    Button hatB;
+    Button armorB;
     public static boolean flamingbought = false;
     public static boolean steelbought = false;
-    private int heightOffset = 25;  // the height of the buttons
-    private int fontSize = 25;  // font size of button text
-    private int hoverTextFontSize = 10;
-    private Label hoverTextLabel;
+    public static boolean hatbought = false;
+    public static boolean armorbought = false;
+    public static int money = 1000;
     Label flaming = new Label("Flaming Coconut", 35);
     Label steel = new Label("Steel Coconut", 35);
     Label hat = new Label("Fresh Hat", 30);
@@ -27,14 +29,30 @@ public class ShopWorld extends World
     {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
-        createShopButtons();
-        hoverTextLabel = new Label("", hoverTextFontSize);
         Label gold = new Label("Gold: " + money, 50);
+        Label buyOne = new Label("Buy", 65);
+        Label buyTwo = new Label("Buy", 65);
+        Label buyThree = new Label("Buy", 65);
+        Label buyFour = new Label("Buy", 65);
+        //Add labels
         addObject(gold, 1050, 100);
         addObject(flaming, 400  , 450);
         addObject(steel, 800, 450);
         addObject(hat, 400, 150);
         addObject(armor, 800, 150);
+        addObject(buyOne, 400, 525);
+        addObject(buyTwo, 800, 525);
+        addObject(buyThree, 400, 225);
+        addObject(buyFour, 800, 225);
+        //Create Buttons
+        flamingB = new Button();
+        addObject(flamingB,400, 525);
+        steelB = new Button();
+        addObject(steelB,800, 525);
+        hatB = new Button();
+        addObject(hatB,400, 225);
+        armorB = new Button();
+        addObject(armorB,800, 225);
     }
 
     public void act(){
@@ -42,57 +60,44 @@ public class ShopWorld extends World
         {
             Greenfoot.setWorld(new TitleScreen());
         }
+        buttonCheck();
     }
 
-    /**
-     * Create and update the labels
-     * This method moves labels to the "front" so they can be clicked
-     */
-    private void createShopButtons()
+    public void buttonCheck()
     {
-        // label settings
-        int x = 500;
-        int y = 500;
-        int buttonWidth = 200;
-        int buttonHeight = 50;
-
-        // get the padding on the ends of the buttons
-        int offset = getWidth() - (buttonWidth * 2  );
-
-        // Create the buttons
-        String weaponupgrade = "Buy (50 gold)";
-        ShopButton button = new ShopButton(weaponupgrade, buttonWidth, buttonHeight, 1);
-        addObject(button, 400, y);
-        String weaponupgradetwo = "Buy (100 gold)";
-        ShopButton buttontwo = new ShopButton(weaponupgradetwo, buttonWidth, buttonHeight, 2);
-        addObject(buttontwo, 800, y);
-        String hatupgrade = "Buy (30 gold)";
-        ShopButton buttonthree = new ShopButton(hatupgrade, buttonWidth, buttonHeight, 3);
-        addObject(buttonthree, 400, y - 300);
-        String armorupgrade = "Buy (150 gold)";
-        ShopButton buttonfour = new ShopButton(armorupgrade, buttonWidth, buttonHeight, 4);
-        addObject(buttonfour, 800, y - 300);
-    }
-
-    /**
-     * Display the name of the exercise from the given letter
-     */
-    /*public void displayHoverText(String letter)
-    {
-    int x = 100;
-    int y = hoverTextFontSize;
-    String displayText = "Pog";
-    hoverTextLabel.setValue(displayText);        
-    hoverTextLabel.setFillColor(Color.GRAY);
-    addObject(hoverTextLabel, x, y);
-    }
-
-     */
-    /**
-     * Cancel the hover Text
-     */
-    public void cancelHoverText()
-    {
-        hoverTextLabel.setValue(""); 
+        if(flamingB.touchingCursor() && money >= 50 && flamingbought == false)
+        {
+            ShopWorld shop = new ShopWorld();
+            shop.money = shop.money - 50;
+            Bullet bullet = new Bullet();
+            bullet.weaponNum = 2;
+            flamingbought = true;
+        }
+        if(steelB.touchingCursor() && money >= 100 && steelbought == false)
+        {
+            ShopWorld shop = new ShopWorld();
+            shop.money = shop.money - 100;
+            Bullet bullet = new Bullet();
+            bullet.weaponNum = 3;
+            flamingbought = true;
+            steelbought = true;
+        }
+        if(hatB.touchingCursor() && money >= 30 && hatbought == false)
+        {
+            ShopWorld shop = new ShopWorld();
+            shop.money = shop.money - 30;
+            Player player = new Player();
+            player.armourNum = 2;
+            hatbought = true;
+        }
+        if(armorB.touchingCursor() && money >= 150 && armorbought == false)
+        {
+            ShopWorld shop = new ShopWorld();
+            shop.money = shop.money - 150;
+            Player player = new Player();
+            player.armourNum = 3;
+            armorbought = true;
+            hatbought = true;
+        }
     }
 }
