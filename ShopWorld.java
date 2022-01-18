@@ -16,7 +16,7 @@ public class ShopWorld extends World
     public static boolean steelbought = false;
     public static boolean hatbought = false;
     public static boolean armorbought = false;
-    public static int money = 0;
+    public static int money = 1000;
     Label flaming = new Label("Flaming Coconut", 35);
     Label steel = new Label("Steel Coconut", 35);
     Label hat = new Label("Fresh Hat", 35);
@@ -25,6 +25,7 @@ public class ShopWorld extends World
     Label buyTwo;
     Label buyThree;
     Label buyFour;
+    Label gold;
     /**
      * Constructor for objects of class ShopWorld.
      * 
@@ -33,30 +34,31 @@ public class ShopWorld extends World
     {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
-        Label gold = new Label("Gold: " + money, 50);
+        gold = new Label("Gold: " + money, 50);
+        gold.setFillColor(Color.YELLOW);
         if(flamingbought == true){
             buyOne = new Label("BOUGHT", 40);
         }
         else{
-            buyOne = new Label("Buy: 50 gold", 40);
+            buyOne = new Label("Buy: 200 gold", 40);
         }
         if(steelbought == true){
             buyTwo = new Label("BOUGHT", 40);
         }
         else{
-            buyTwo = new Label("Buy: 100 gold", 40);
+            buyTwo = new Label("Buy: 500 gold", 40);
         }
         if(hatbought == true){
             buyThree = new Label("BOUGHT", 40);
         }
         else{
-            buyThree = new Label("Buy: 30 gold", 40);
+            buyThree = new Label("Buy: 150 gold", 40);
         }
         if(armorbought == true){
             buyFour = new Label("BOUGHT", 40);
         }
         else{
-            buyFour = new Label("Buy: 150 gold", 40);
+            buyFour = new Label("Buy: 600 gold", 40);
         }
         //Add labels
         addObject(gold, 1050, 100);
@@ -78,46 +80,58 @@ public class ShopWorld extends World
         armorB = new Button();
         addObject(armorB,800, 375);
     }
+
     public void act(){
         if(Greenfoot.isKeyDown("B"))
         {
             Greenfoot.setWorld(new TitleScreen());
         }
         buttonCheck();
+        updateShop();
+        gold.setValue("Gold: " + money);
     }
+
+    public void updateShop()
+    {
+        if(flamingbought == true){
+            buyOne.setValue("BOUGHT");
+        }
+        if(steelbought == true){
+            buyTwo.setValue("BOUGHT");
+        }
+        if(hatbought == true){
+            buyThree.setValue("BOUGHT");
+        }
+        if(armorbought == true){
+            buyFour.setValue("BOUGHT");
+        }
+    }
+
     public void buttonCheck()
     {
-        if(flamingB.touchingCursor() && money >= 50 && flamingbought == false)
+        if(flamingB.touchingCursor() && money >= 200 && flamingbought == false)
         {
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money - 50;
-            Bullet bullet = new Bullet();
-            bullet.weaponNum = 2;
+            money -= 200;
+            Bullet.weaponNum = 2;
             flamingbought = true;
         }
-        if(steelB.touchingCursor() && money >= 100 && steelbought == false)
+        if(steelB.touchingCursor() && money >= 500 && steelbought == false)
         {
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money - 100;
-            Bullet bullet = new Bullet();
-            bullet.weaponNum = 3;
+            money -= 500;
+            Bullet.weaponNum = 3;
             flamingbought = true;
             steelbought = true;
         }
-        if(hatB.touchingCursor() && money >= 30 && hatbought == false)
+        if(hatB.touchingCursor() && money >= 150 && hatbought == false)
         {
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money - 30;
-            Player player = new Player();
-            player.armourNum = 2;
+            money -= 150;
+            Player.armourNum = 2;
             hatbought = true;
         }
-        if(armorB.touchingCursor() && money >= 150 && armorbought == false)
+        if(armorB.touchingCursor() && money >= 600 && armorbought == false)
         {
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money - 150;
-            Player player = new Player();
-            player.armourNum = 3;
+            money -= 600;
+            Player.armourNum = 3;
             armorbought = true;
             hatbought = true;
         }

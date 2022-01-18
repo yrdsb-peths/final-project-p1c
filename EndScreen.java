@@ -16,8 +16,8 @@ public class EndScreen extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
-        Label theend = new Label("Gameover", 85);
-        Label spacebar = new Label("Hit spacebar to play again", 60);
+        Label theend = new Label("Game Over!", 85);
+        Label spacebar = new Label("Hit <backspace> to return to menu!", 60);
         Player player = new Player();
         int score = player.score;
         HighScoresScreen highscores = new HighScoresScreen();
@@ -28,7 +28,7 @@ public class EndScreen extends World
         player.score = 0;
     }
     public void act(){
-        if(Greenfoot.isKeyDown("space"))
+        if(Greenfoot.isKeyDown("backspace"))
         {
             Greenfoot.setWorld(new TitleScreen());
         }
