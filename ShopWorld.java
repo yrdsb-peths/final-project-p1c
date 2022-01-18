@@ -19,8 +19,8 @@ public class ShopWorld extends World
     public static int money = 0;
     Label flaming = new Label("Flaming Coconut", 35);
     Label steel = new Label("Steel Coconut", 35);
-    Label hat = new Label("Fresh Hat", 30);
-    Label armor = new Label("Military Gear", 30);
+    Label hat = new Label("Fresh Hat", 35);
+    Label armor = new Label("Military Gear", 35);
     Label buyOne;
     Label buyTwo;
     Label buyThree;
@@ -60,25 +60,24 @@ public class ShopWorld extends World
         }
         //Add labels
         addObject(gold, 1050, 100);
-        addObject(flaming, 400  , 450);
+        addObject(flaming, 400, 450);
         addObject(steel, 800, 450);
-        addObject(hat, 400, 150);
-        addObject(armor, 800, 150);
+        addObject(hat, 400, 300);
+        addObject(armor, 800, 300);
         addObject(buyOne, 400, 525);
         addObject(buyTwo, 800, 525);
-        addObject(buyThree, 400, 225);
-        addObject(buyFour, 800, 225);
+        addObject(buyThree, 400, 375);
+        addObject(buyFour, 800, 375);
         //Create Buttons
         flamingB = new Button();
         addObject(flamingB,400, 525);
         steelB = new Button();
         addObject(steelB,800, 525);
         hatB = new Button();
-        addObject(hatB,400, 225);
+        addObject(hatB,400, 375);
         armorB = new Button();
-        addObject(armorB,800, 225);
+        addObject(armorB,800, 375);
     }
-
     public void act(){
         if(Greenfoot.isKeyDown("B"))
         {
@@ -86,7 +85,6 @@ public class ShopWorld extends World
         }
         buttonCheck();
     }
-
     public void buttonCheck()
     {
         if(flamingB.touchingCursor() && money >= 50 && flamingbought == false)

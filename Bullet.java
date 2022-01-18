@@ -18,11 +18,11 @@ public class Bullet extends Actor
     /**
      * Act - do whatever the Bullet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
-     */public void act()
+     */
+    public void act()
     {   
         updateCoconut();
     }
-
     private void coconutT1()
     {
         move(9);
