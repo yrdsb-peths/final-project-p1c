@@ -6,10 +6,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class LevelTwo extends World
+public class LevelTwo extends GameWorld
 {
-    int enemyTimerTwo = 0;
-    int numEnemiesTwo = 10;
+    int time = 0;
+    int wave = 1;
+    int timer = 300;
+    Label healthLabel;
     /**
      * Constructor for objects of class LevelTwo.
      * 
@@ -17,25 +19,33 @@ public class LevelTwo extends World
     public LevelTwo()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 650, 1);
+        //super(800, 650, 1);
+        removeObjects(getObjects(null));
         Player player = new Player();
-        addObject(player, 400, 400);
+        addObject(player, 600, 350);
+        Health health = new Health();
+        addObject(health,70,70);
+        healthLabel = new Label("-", 60);
+        healthLabel.setFillColor(Color.RED);
+        addObject(healthLabel, 120, 70);
+        waveCount = new Label("Wave " + wave, 60);
     }
 
     public void act()
     {
-        if(enemyTimerTwo <= 0 && numEnemiesTwo > 0)
+        if(time % 350 == 0)
         {
-            int ranyTwo = Greenfoot.getRandomNumber(700);
-            Enemy enemyTwo = new Enemy();
-            addObject(enemyTwo, 790, ranyTwo);
-            enemyTimerTwo = 30;
-            numEnemiesTwo--;
+            waveCount.setValue("Wave " + wave);
+            addObject(waveCount, 600,350);
+            spawnBalloons(2,wave,timer);
+            wave++;
+            timer += 50;
+            removeObject(waveCount);
         }
-        enemyTimerTwo--;
-        if(getObjects(Enemy.class).size() == 0 && numEnemiesTwo == 0){
-            Greenfoot.delay(100);
-            Greenfoot.setWorld(new LevelThree());
+        time++;
+        if(!Health.life.isEmpty())
+        {
+            healthLabel.setValue(Health.life.peek());
         }
     }
 }

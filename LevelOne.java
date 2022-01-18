@@ -1,22 +1,24 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.Iterator;
 
 /**
- * Write a description of class LevelThree here.
+ * Write a description of class LevelOne here.
  * 
- * @author (your name)
+ * @author (your name) 
  * @version (a version number or a date)
  */
-public class LevelThree extends GameWorld
+public class LevelOne extends GameWorld
 {
     int time = 0;
     int wave = 1;
-    int timer = 400;
+    int timer = 200;
     Label healthLabel;
+    
     /**
-     * Constructor for objects of class LevelThree.
+     * Constructor for objects of class LevelOne.
      * 
      */
-    public LevelThree()
+    public LevelOne()
     {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         //super(800, 650, 1);
@@ -33,13 +35,13 @@ public class LevelThree extends GameWorld
 
     public void act()
     {
-        if(time % 300 == 0)
+        if(time % 400 == 0)
         {
             waveCount.setValue("Wave " + wave);
             addObject(waveCount, 600,350);
-            spawnBalloons(3,wave,timer);
+            spawnBalloons(1,wave,timer);
             wave++;
-            timer += 100;
+            timer += 25;
             removeObject(waveCount);
         }
         time++;
