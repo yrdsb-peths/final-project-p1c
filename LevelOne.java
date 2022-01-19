@@ -31,6 +31,7 @@ public class LevelOne extends GameWorld
         healthLabel.setFillColor(Color.RED);
         addObject(healthLabel, 120, 70);
         waveCount = new Label("Wave " + wave, 60);
+        addObject(moneyLabel, 1050, 100);
     }
 
     public void act()
@@ -49,5 +50,6 @@ public class LevelOne extends GameWorld
         {
             healthLabel.setValue(Health.life.peek());
         }
+        updateMoney();
     }
 }

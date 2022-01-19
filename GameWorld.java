@@ -16,6 +16,7 @@ public class GameWorld extends World
     Button wThree;
 
     Label waveCount;
+    Label moneyLabel = new Label("", 50);
     /**
      * Constructor for objects of class GameWorld.
      * 
@@ -27,6 +28,8 @@ public class GameWorld extends World
 
         setPaintOrder(Button.class, Label.class);
 
+        moneyLabel.setFillColor(Color.YELLOW);
+        
         wOne = new Button();
         wTwo = new Button();
         wThree = new Button();
@@ -93,36 +96,38 @@ public class GameWorld extends World
         if(timer % 100 == 0)
         {
             addObject(balloon, randomLocationX(), 0);
-            Greenfoot.delay(10);
+            Greenfoot.delay(10/level);
         }
-        else if(timer % 100 == (25/level))
+        else if(timer % 100 == 25)
         {
             addObject(balloon, randomLocationX(), 700);
-            Greenfoot.delay(10);
+            Greenfoot.delay(10/level);
         }
-        else if(timer % 100 == (50/level))
+        else if(timer % 100 == 50)
         {
             addObject(balloon, 0, randomLocationY());
-            Greenfoot.delay(10);
+            Greenfoot.delay(10/level);
         }
-        else if(timer % 100 == (75/level))
+        else if(timer % 100 == 75)
         {
             addObject(balloon, 1200, randomLocationY());
-            Greenfoot.delay(10);
+            Greenfoot.delay(10/level);
         }
         spawnBalloons(level, wave, timer-1);
     }
-
     private int randomLocationX()
     {
         int x = Greenfoot.getRandomNumber(1200);
         return x;
     }
-
     private int randomLocationY()
     {
         int y = Greenfoot.getRandomNumber(700);
         return y;
     }
-
+    
+    public void updateMoney()
+    {
+        moneyLabel.setValue("Gold: " + ShopWorld.money);
+    }
 }

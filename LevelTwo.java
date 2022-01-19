@@ -29,6 +29,7 @@ public class LevelTwo extends GameWorld
         healthLabel.setFillColor(Color.RED);
         addObject(healthLabel, 120, 70);
         waveCount = new Label("Wave " + wave, 60);
+        addObject(moneyLabel, 1050, 100);
     }
 
     public void act()
@@ -39,7 +40,7 @@ public class LevelTwo extends GameWorld
             addObject(waveCount, 600,350);
             spawnBalloons(2,wave,timer);
             wave++;
-            timer += 50;
+            timer += 35;
             removeObject(waveCount);
         }
         time++;
@@ -47,5 +48,6 @@ public class LevelTwo extends GameWorld
         {
             healthLabel.setValue(Health.life.peek());
         }
+        updateMoney();
     }
 }

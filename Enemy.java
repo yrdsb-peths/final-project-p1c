@@ -10,7 +10,7 @@ public class Enemy extends Actor
 {
     private int speed;
     private int power;
-    public int moneyValue;
+    public static int moneyValue;
     GreenfootImage redB = new GreenfootImage("balloon1.png");
     GreenfootImage blueB = new GreenfootImage("balloon2.png");
     GreenfootImage greenB = new GreenfootImage("balloon3.png");
@@ -55,18 +55,6 @@ public class Enemy extends Actor
     public void act() 
     {
         trackMonkey();
-        balloon();
-    }    
-
-    public void trackMonkey()
-    {
-        if (getWorld().getObjects(Player.class).isEmpty()) return;
-        Actor player = (Actor)getWorld().getObjects(Player.class).get(0);
-        turnTowards(player.getX(), player.getY());
-    }
-    
-    public void balloon()
-    {
         move(speed);
         if (isTouching(Player.class)){
             for(int i = 0; i < power; i++)
@@ -82,5 +70,18 @@ public class Enemy extends Actor
             }
             getWorld().removeObject(this);
         }
+    }    
+
+    public void trackMonkey()
+    {
+        if (getWorld().getObjects(Player.class).isEmpty()) return;
+        Actor player = (Actor)getWorld().getObjects(Player.class).get(0);
+        turnTowards(player.getX(), player.getY());
+    }
+    
+    
+    public static int getMoneyValue()
+    {
+        return moneyValue;
     }
 }

@@ -41,9 +41,8 @@ public class Bullet extends Actor
         else if (isTouching(Enemy.class))
         {
             removeTouching(Enemy.class);
-            Player player = new Player();
-            player.score++;
-            ShopWorld.money += 5;
+            Player.score++;
+            ShopWorld.money += Enemy.getMoneyValue();
             T1hits();
         }
     }
@@ -57,10 +56,8 @@ public class Bullet extends Actor
         else if (isTouching(Enemy.class))
         {
             removeTouching(Enemy.class);
-            Player player = new Player();
-            player.score++;
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money + 5;
+            Player.score++;
+            ShopWorld.money += Enemy.getMoneyValue();
             T2hits();
         }
     }
@@ -74,10 +71,8 @@ public class Bullet extends Actor
         else if (isTouching(Enemy.class))
         {
             removeTouching(Enemy.class);
-            Player player = new Player();
-            player.score++;
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money + 5;
+            Player.score++;
+            ShopWorld.money += Enemy.getMoneyValue();
             T3hits();
         }
     }

@@ -11,5 +11,5 @@ comment3.text=\r\n\ Act\ -\ do\ whatever\ the\ Enemy\ wants\ to\ do.\ This\ meth
 comment4.params=
 comment4.target=void\ trackMonkey()
 comment5.params=
-comment5.target=void\ balloon()
+comment5.target=int\ getMoneyValue()
 numComments=6
