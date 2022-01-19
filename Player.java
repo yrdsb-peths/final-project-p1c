@@ -13,7 +13,7 @@ public class Player extends Actor
     public int shootCooldown = 0;
     boolean mouseIsDown = false;
     MouseInfo mouse = Greenfoot.getMouseInfo();
-    public static int armourNum = 1;
+    public static int armourNum = 3;
     GreenfootImage T1 = new GreenfootImage("o1.png");
     GreenfootImage T2 = new GreenfootImage("o2.png");
     GreenfootImage T3 = new GreenfootImage("o3.png");

@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bullet extends Actor
 {
-    public static int weaponNum = 1;
+    public static int weaponNum = 3;
     public int hitsT1 = 2;
     public int hitsT2 = 3;
     public int hitsT3 = 5;

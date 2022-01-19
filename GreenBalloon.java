@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GreenBalloon extends Enemy
 {
+    int power = 2;
+    int speed =3;
+    GreenfootImage image;
     /**
      * Act - do whatever the GreenBalloon wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -18,15 +21,14 @@ public class GreenBalloon extends Enemy
         trackMonkey();
         move(3);
         if (isTouching(Player.class)){
-            if(Health.life.peek() > 2)
-            {
-                Health.life.pop();
-                Health.life.pop();
+            for(int i = 0 ; i< power ; i++){
+                if(!Health.life.isEmpty()){
+                    Health.life.pop();
+                } else {
+                    Health.die();
+                }
             }
-            else
-            {
-                Health.die();
-            }
+            // remove the balloon
             getWorld().removeObject(this);
         }
     }

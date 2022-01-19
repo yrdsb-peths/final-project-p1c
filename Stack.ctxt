@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Stack
-comment0.text=\r\n\ A\ stack\ data\ structure\r\n
+comment0.text=\n\ A\ stack\ data\ structure\n
 comment1.params=
 comment1.target=boolean\ isEmpty()
 comment2.params=item
@@ -10,7 +10,7 @@ comment3.target=java.lang.Object\ pop()
 comment4.params=
 comment4.target=java.lang.Object\ peek()
 comment5.params=
-comment5.target=void\ empty()
+comment5.target=void\ clear()
 comment6.params=
 comment6.target=java.util.Iterator\ iterator()
 numComments=7
