@@ -20,21 +20,27 @@ public class HighScoresScreen extends World
         super(1200, 700, 1);
         setup(nums);
         shuffle(nums);
-        Player player = new Player();
-        int score = player.score;
-        if(score < nums.get(0) && score > nums.get(6)){
-            //make array longer
-        }
-        if(score > nums.get(0)){
-            nums.add(score);
-        }
-        Label scorelabel = new Label ("Score: " + score, 60);
+        Label scorelabel = new Label ("Score:", 60);
         addObject(scorelabel, 400, 250);
+        quicksort(nums);
+        for (int i = 0; i < nums.size(); i++){
+            if (i < 10){
+                Label scores = new Label(nums.get(i), 60);
+                addObject(scores, 400, 350 + (i * 50));
+            }
+        }
     }
 
-    public void run()
-    {
-        quicksort(nums);
+    public void act(){
+        if(Greenfoot.isKeyDown("B"))
+        {
+            Greenfoot.setWorld(new TitleScreen());
+        }
+    }
+
+    public void run(){
+        
+        
     }
 
     private void setup(ArrayList<Integer> arr)

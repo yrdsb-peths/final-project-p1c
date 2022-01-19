@@ -21,6 +21,7 @@ public class EndScreen extends World
         Player player = new Player();
         int score = player.score;
         HighScoresScreen highscores = new HighScoresScreen();
+        highscores.nums.add(score);
         Label finalscore = new Label("Score: " + score, 60);
         addObject(finalscore, 600, 500);
         addObject(theend, 600, 250);
