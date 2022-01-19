@@ -74,6 +74,9 @@ public class TitleScreen extends World
         {
             Greenfoot.setWorld(new InfoWorld());
         }
+        if(Greenfoot.isKeyDown("H")){
+            Greenfoot.setWorld(new HighScoresScreen());
+        }
         buttonCheck();
     }
     
