@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Enemy extends Actor
 {
-    private int speed;
-    private int power;
+    int speed;
+    int power;
     public static int moneyValue;
     GreenfootImage redB = new GreenfootImage("balloon1.png");
     GreenfootImage blueB = new GreenfootImage("balloon2.png");
@@ -22,7 +22,6 @@ public class Enemy extends Actor
         power = powerVal;
         moneyValue = moneyVal;
     }
-    
     
     public Enemy(EnemyType type)
     {

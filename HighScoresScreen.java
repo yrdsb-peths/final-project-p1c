@@ -8,8 +8,24 @@ import java.util.ArrayList;
  */
 public class HighScoresScreen extends World
 {
-    public static ArrayList<Integer> nums = new ArrayList<Integer>();
+    public static ArrayList<Integer> nums1 = new ArrayList<Integer>();
+    public static ArrayList<Integer> nums2 = new ArrayList<Integer>();
+    public static ArrayList<Integer> nums3 = new ArrayList<Integer>();
+
     private int target;
+
+    Label level1;
+    Label l11;
+    Label l12;
+    Label l13;
+    Label level2;
+    Label l21;
+    Label l22;
+    Label l23;
+    Label level3;
+    Label l31;
+    Label l32;
+    Label l33;
     /**
      * Constructor for objects of class HighScoresScreen.
      * 
@@ -18,29 +34,66 @@ public class HighScoresScreen extends World
     {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
-        setup(nums);
-        shuffle(nums);
-        Label scorelabel = new Label ("Score:", 60);
-        addObject(scorelabel, 400, 250);
-        quicksort(nums);
-        for (int i = 0; i < nums.size(); i++){
-            if (i < 10){
-                Label scores = new Label(nums.get(i), 60);
-                addObject(scores, 400, 350 + (i * 50));
-            }
+        level1 = new Label("World 1 High Waves!", 45);
+        level1.setFillColor(Color.GREEN);
+        addObject(level1, 210, 100);
+
+        level2 = new Label("World 2 High Waves!", 45);
+        level2.setFillColor(Color.ORANGE);
+        addObject(level2, 600, 100);
+
+        level3 = new Label("World 3 High Waves!", 45);
+        level3.setFillColor(Color.MAGENTA);
+        addObject(level3, 990, 100);
+
+        l11 = new Label("1: ", 70);
+        addObject(l11, 100, 200);
+        l12 = new Label("2: ", 70);
+        addObject(l12, 100, 350);
+        l13 = new Label("3: ", 70);
+        addObject(l13, 100, 500);
+
+        l21 = new Label("1: ", 70);
+        addObject(l21, 500, 200);
+        l22 = new Label("2: ", 70);
+        addObject(l22, 500, 350);
+        l23 = new Label("3: ", 70);
+        addObject(l23, 500, 500);
+
+        l31 = new Label("1: ", 70);
+        addObject(l31, 850, 200);
+        l32 = new Label("2: ", 70);
+        addObject(l32, 850, 350);
+        l33 = new Label("3: ", 70);
+        addObject(l33, 850, 500);
+
+        if(nums1.size() < 3)
+        {
+            nums1.add(0);
+            nums1.add(0);
+            nums1.add(0);
         }
+        if(nums2.size() < 3)
+        {
+            nums2.add(0);
+            nums2.add(0);
+            nums2.add(0);
+        }
+        if(nums3.size() < 3)
+        {
+            nums3.add(0);
+            nums3.add(0);
+            nums3.add(0);
+        }
+        sort();
     }
 
     public void act(){
+        updateAll();
         if(Greenfoot.isKeyDown("B"))
         {
             Greenfoot.setWorld(new TitleScreen());
         }
-    }
-
-    public void run(){
-        
-        
     }
 
     private void setup(ArrayList<Integer> arr)
@@ -90,6 +143,7 @@ public class HighScoresScreen extends World
     }
 
     public void quicksort(ArrayList<Integer> a) {
+        shuffle(a);
         quicksort(a, 0, a.size()- 1);
     }
     // quicksort the subarray from a[lo] to a[hi]  
@@ -98,5 +152,56 @@ public class HighScoresScreen extends World
         int j = partition(a, lo, hi); 
         quicksort(a, lo, j-1); 
         quicksort(a, j+1, hi);
+    }
+
+    private void sort()
+    {
+        switch(GameWorld.world)
+        {
+            case 1:
+                nums1.add(EndScreen.waveValue);
+                quicksort(nums1);
+                update1();
+                System.out.println(nums1.toString());
+                break;
+            case 2:
+                nums2.add(EndScreen.waveValue);
+                quicksort(nums2);
+                update2();
+                break;
+            case 3:
+                nums3.add(EndScreen.waveValue);
+                quicksort(nums3);
+                update3();
+                break;
+        }
+    }
+    
+    public void updateAll()
+    {
+        update1();
+        update2();
+        update3();
+    }
+    public void update1()
+    {
+        int val = nums1.size();
+        l11.setValue("1: " + nums1.get(val - 1));
+        l12.setValue("2: " + nums1.get(val - 2));
+        l13.setValue("3: " + nums1.get(val - 3));
+    }
+    public void update2()
+    {
+        int val = nums2.size();
+        l21.setValue("1: " + nums2.get(val - 1));
+        l22.setValue("2: " + nums2.get(val - 2));
+        l23.setValue("3: " + nums2.get(val - 3));
+    }
+    public void update3()
+    {
+        int val = nums3.size();
+        l31.setValue("1: " + nums3.get(val - 1));
+        l32.setValue("2: " + nums3.get(val - 2));
+        l33.setValue("3: " + nums3.get(val - 3));
     }
 }
