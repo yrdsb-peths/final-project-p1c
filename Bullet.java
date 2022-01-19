@@ -38,42 +38,12 @@ public class Bullet extends Actor
         if(isAtEdge()){
             getWorld().removeObject(this);
         }
-        else if (isTouching(OrangeBalloon.class))
+        else if (isTouching(Enemy.class))
         {
-            removeTouching(OrangeBalloon.class);
-            Player player = new Player();
-            player.score++;
-            ShopWorld.money += 5;
-            T1hits();
-        }
-        else if (isTouching(GreenBalloon.class)){
-            removeTouching(GreenBalloon.class);
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money + 4;
-            Player player = new Player();
-            player.score++;
-            T1hits();
-        }
-        else if (isTouching(BlueBalloon.class)){
-            removeTouching(BlueBalloon.class);
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money + 2;
-            Player player = new Player();
-            player.score++;
-            T1hits();
-        }
-        else if (isTouching(RedBalloon.class)){
-            removeTouching(RedBalloon.class);
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money + 1;
-            Player player = new Player();
-            player.score++;
-            T1hits();
-        }
-        else if (isTouching(Enemy.class)){
             removeTouching(Enemy.class);
             Player player = new Player();
             player.score++;
+            ShopWorld.money += 5;
             T1hits();
         }
     }
@@ -84,43 +54,13 @@ public class Bullet extends Actor
         if(isAtEdge()){
             getWorld().removeObject(this);
         }
-        else if (isTouching(OrangeBalloon.class))
+        else if (isTouching(Enemy.class))
         {
-            removeTouching(OrangeBalloon.class);
+            removeTouching(Enemy.class);
             Player player = new Player();
             player.score++;
             ShopWorld shop = new ShopWorld();
             shop.money = shop.money + 5;
-            T2hits();
-        }
-        else if (isTouching(GreenBalloon.class)){
-            removeTouching(GreenBalloon.class);
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money + 4;
-            Player player = new Player();
-            player.score++;
-            T2hits();
-        }
-        else if (isTouching(BlueBalloon.class)){
-            removeTouching(BlueBalloon.class);
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money + 2;
-            Player player = new Player();
-            player.score++;
-            T2hits();
-        }
-        else if (isTouching(RedBalloon.class)){
-            removeTouching(RedBalloon.class);
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money + 1;
-            Player player = new Player();
-            player.score++;
-            T2hits();
-        }
-        else if (isTouching(Enemy.class)){
-            removeTouching(Enemy.class);
-            Player player = new Player();
-            player.score++;
             T2hits();
         }
     }
@@ -131,43 +71,13 @@ public class Bullet extends Actor
         if(isAtEdge()){
             getWorld().removeObject(this);
         }
-        else if (isTouching(OrangeBalloon.class))
+        else if (isTouching(Enemy.class))
         {
-            removeTouching(OrangeBalloon.class);
+            removeTouching(Enemy.class);
             Player player = new Player();
             player.score++;
             ShopWorld shop = new ShopWorld();
             shop.money = shop.money + 5;
-            T3hits();
-        }
-        else if (isTouching(GreenBalloon.class)){
-            removeTouching(GreenBalloon.class);
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money + 4;
-            Player player = new Player();
-            player.score++;
-            T3hits();
-        }
-        else if (isTouching(BlueBalloon.class)){
-            removeTouching(BlueBalloon.class);
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money + 2;
-            Player player = new Player();
-            player.score++;
-            T3hits();
-        }
-        else if (isTouching(RedBalloon.class)){
-            removeTouching(RedBalloon.class);
-            ShopWorld shop = new ShopWorld();
-            shop.money = shop.money + 1;
-            Player player = new Player();
-            player.score++;
-            T3hits();
-        }
-        else if (isTouching(Enemy.class)){
-            removeTouching(Enemy.class);
-            Player player = new Player();
-            player.score++;
             T3hits();
         }
     }

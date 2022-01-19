@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=HighScoresScreen
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ HighScoresScreen\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=HighScoresScreen()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ HighScoresScreen.\r\n\ \r\n
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ run()
+comment4.params=arr
+comment4.target=void\ setup(java.util.ArrayList)
+comment5.params=arr
+comment5.target=void\ shuffle(java.util.ArrayList)
+comment6.params=arr\ i\ j
+comment6.target=void\ swap(java.util.ArrayList,\ int,\ int)
+comment7.params=a\ lo\ hi
+comment7.target=int\ partition(java.util.ArrayList,\ int,\ int)
+comment8.params=a
+comment8.target=void\ quicksort(java.util.ArrayList)
+comment9.params=a\ lo\ hi
+comment9.target=void\ quicksort(java.util.ArrayList,\ int,\ int)
+numComments=10

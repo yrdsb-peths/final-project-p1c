@@ -28,13 +28,13 @@ public class Stack<E> implements Iterable<E>
         first = first.next;
         return item;
     }
-    
+
     public E peek()
     {
         return first.item;
     }
-    
-    public void empty()
+
+    public void clear()
     {
         first = null;
     }

@@ -45,6 +45,6 @@ public class Health extends Actor
     }
     public static void die()
     {
-        life.empty();
+        life.clear();
     }
 }

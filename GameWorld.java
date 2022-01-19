@@ -72,22 +72,22 @@ public class GameWorld extends World
     public void spawnBalloons(int level, int wave, int timer)
     {
         if(timer == 0) return;
-        Enemy balloon = new Enemy();
+        Enemy balloon;
         if(wave % 7 == 0)
         {
-            balloon = new OrangeBalloon();
+            balloon = new Enemy(EnemyType.orange);
         }
         else if(wave % 5 == 0)
         {
-            balloon = new GreenBalloon();
+            balloon = new Enemy(EnemyType.green);
         }
         else if(wave % 2 == 0)
         {
-            balloon = new BlueBalloon();
+            balloon = new Enemy(EnemyType.blue);
         }
         else
         {
-            balloon = new RedBalloon();
+            balloon = new Enemy(EnemyType.red);
         }
 
         if(timer % 100 == 0)
