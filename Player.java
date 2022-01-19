@@ -110,6 +110,7 @@ public class Player extends Actor
             setImage(T3);
         }
     }
+    //Useless methods
     public void monkeyT1()
     {
         

@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.ArrayList;
 /**
  * Write a description of class HighScoresScreen here.
  * 
@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class HighScoresScreen extends World
 {
-    private static int[] nums = new int[10];
+    public static ArrayList<Integer> nums = new ArrayList<Integer>();
     private int target;
     /**
      * Constructor for objects of class HighScoresScreen.
@@ -22,12 +22,11 @@ public class HighScoresScreen extends World
         shuffle(nums);
         Player player = new Player();
         int score = player.score;
-        if(score < nums[0] && score > nums[6]){
+        if(score < nums.get(0) && score > nums.get(6)){
             //make array longer
         }
-        if(score > nums[0]){
-            nums[0] = score;
-            
+        if(score > nums.get(0)){
+            nums.add(score);
         }
         Label scorelabel = new Label ("Score: " + score, 60);
         addObject(scorelabel, 400, 250);
@@ -38,38 +37,38 @@ public class HighScoresScreen extends World
         quicksort(nums);
     }
 
-    private void setup(int[] arr)
+    private void setup(ArrayList<Integer> arr)
     {
-        for (int i = 0; i < arr.length - 1; i++){
-            arr[i] = i + 1;
+        for (int i = 0; i < arr.size() - 1; i++){
+            arr.set(i, i + 1);
         }
     }
 
-    private void shuffle(int[] arr)
+    private void shuffle(ArrayList<Integer> arr)
     {
-        for(int i = 0; i < arr.length; i++){
-            int indexes = Greenfoot.getRandomNumber(arr.length - i) + i;
+        for(int i = 0; i < arr.size(); i++){
+            int indexes = Greenfoot.getRandomNumber(arr.size() - i) + i;
             swap(arr, i, indexes);
         }
     }
 
-    private void swap(int[] arr, int i, int j)
+    private void swap(ArrayList<Integer> arr, int i, int j)
     {
-        int temp = arr[j];
-        arr[j] = arr[i];
-        arr[i] = temp;
+        int temp = arr.get(j);
+        arr.set(j, arr.get(i));
+        arr.set(i, temp);
     }
 
-    public int partition(int[] a, int lo, int hi) {
+    public int partition(ArrayList<Integer> a, int lo, int hi) {
         int i = lo; 
         int j = hi + 1;
         while (true) {
-            while (a[++i] < a[lo]){ // Find item on left to swap 
+            while (a.get(++i) < a.get(lo)){ // Find item on left to swap 
                 if (i == hi){
                     break;
                 }
             }
-            while (a[--j] > a[lo]){
+            while (a.get(--j) > a.get(lo)){
                 if (j == lo){
                     break;
                 }
@@ -84,11 +83,11 @@ public class HighScoresScreen extends World
         return j;  // Return index of item now know to be in place
     }
 
-    public void quicksort(int[] a) {
-        quicksort(a, 0, a.length - 1);
+    public void quicksort(ArrayList<Integer> a) {
+        quicksort(a, 0, a.size()- 1);
     }
     // quicksort the subarray from a[lo] to a[hi]  
-    private void quicksort(int[] a, int lo, int hi) {
+    private void quicksort(ArrayList<Integer> a, int lo, int hi) {
         if (hi <= lo) return;
         int j = partition(a, lo, hi); 
         quicksort(a, lo, j-1); 
