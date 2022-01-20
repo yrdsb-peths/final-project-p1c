@@ -30,6 +30,7 @@ public class Bullet extends Actor
     public void act()
     {   
         updateCoconut();
+        
     }
 
     private void coconutT1()
@@ -38,13 +39,21 @@ public class Bullet extends Actor
         if(isAtEdge()){
             getWorld().removeObject(this);
         }
-        else if (isTouching(Enemy.class))
-        {
-            removeTouching(Enemy.class);
+        
+        Enemy enemy = (Enemy) getOneIntersectingObject(Enemy.class);
+        if(enemy != null){
             Player.score++;
-            ShopWorld.money += Enemy.moneyValue;
-            T1hits();
+            ShopWorld.money += enemy.moneyValue;
+            getWorld().removeObject(enemy);
+            
         }
+        // else if (isTouching(Enemy.class))
+        // {
+            // removeTouching(Enemy.class);
+            // Player.score++;
+            // ShopWorld.money += Enemy.moneyValue;
+            // T1hits();
+        // }
     }
 
     private void coconutT2()

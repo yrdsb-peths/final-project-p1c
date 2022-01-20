@@ -16,38 +16,46 @@ public class Enemy extends Actor
     GreenfootImage blueB = new GreenfootImage("balloon2.png");
     GreenfootImage greenB = new GreenfootImage("balloon3.png");
     GreenfootImage orangeB = new GreenfootImage("balloon4.png");
-    
+
     public Enemy(int speedVal, int powerVal, int moneyVal)
     {
         speed = speedVal;
         power = powerVal;
         moneyValue = moneyVal;
     }
-    
+
     public Enemy(EnemyType type)
     {
         if(type == EnemyType.red)
         {
-            this(1, 1, 1);
+            speed = 1;
+            power = 1;
+            moneyValue = 1;
             setImage(redB);
         }
         else if(type == EnemyType.blue)
         {
-            this(2, 1, 2);
+            speed = 2;
+            power = 1;
+            moneyValue = 2;
             setImage(blueB);
         }
         else if(type == EnemyType.green)
         {
-            this(3, 2, 4);
+            speed = 3;
+            power = 2;
+            moneyValue = 4;
             setImage(greenB);
         }
         else if(type == EnemyType.orange)
         {
-            this(2, 4, 5);
+            speed = 2;
+            power = 4;
+            moneyValue = 5;
             setImage(orangeB);
         }
     }
-    
+
     /**
      * Act - do whatever the Enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -79,10 +87,6 @@ public class Enemy extends Actor
         Actor player = (Actor)getWorld().getObjects(Player.class).get(0);
         turnTowards(player.getX(), player.getY());
     }
-    
-    
-    public static int getMoneyValue()
-    {
-        return moneyValue;
-    }
+
+ 
 }
