@@ -35,8 +35,14 @@ public class GameWorld extends World
         wTwo = new Button();
         wThree = new Button();
         Label one = new Label("World 1!", 75);
+        one.setLineColor(Color.GREEN);
+        one.setFillColor(Color.BLACK);
         Label two = new Label("World 2!", 75);
+        two.setLineColor(Color.ORANGE);
+        two.setFillColor(Color.BLACK);
         Label three = new Label("World 3!", 75);
+        three.setLineColor(Color.RED);
+        three.setFillColor(Color.BLACK);
 
         addObject(wOne, 200, 370);
         addObject(new Label("<1>", 65), 200, 370);

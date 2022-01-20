@@ -26,6 +26,8 @@ public class ShopWorld extends World
     Label buyThree;
     Label buyFour;
     Label gold;
+    
+    Button returnMenu;
     /**
      * Constructor for objects of class ShopWorld.
      * 
@@ -34,8 +36,12 @@ public class ShopWorld extends World
     {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
+        
+        setPaintOrder(Button.class, Label.class);
         gold = new Label("Gold: " + money, 50);
         gold.setFillColor(Color.YELLOW);
+        
+        
         if(flamingbought == true){
             buyOne = new Label("BOUGHT", 40);
         }
@@ -79,10 +85,17 @@ public class ShopWorld extends World
         addObject(hatB,400, 375);
         armorB = new Button();
         addObject(armorB,800, 375);
+        
+        returnMenu = new Button();
+        addObject(returnMenu, 120, 650);
+        Label b = new Label("\u21e6", 90);
+        addObject(b, 120, 644);
+        Label goBack = new Label("Press <B> or click the button to go back!", 50);
+        addObject(goBack, 700, 650);
     }
 
     public void act(){
-        if(Greenfoot.isKeyDown("B"))
+        if(Greenfoot.isKeyDown("B") || returnMenu.touchingCursor())
         {
             Greenfoot.setWorld(new TitleScreen());
         }
