@@ -9,7 +9,13 @@ import java.util.List;
  */
 public class GameWorld extends World
 {
+    /**
+     * Integer to select different worlds and to keep track of them
+     */
     public static int world = 0;
+    /**
+     * Integer to keep track of wave number
+     */
     public static int wave;
 
     Button wOne;
@@ -52,7 +58,9 @@ public class GameWorld extends World
         addObject(two, 600, 300);
         addObject(three, 1000, 300);
     }
-
+    /**
+     * Manages keypresses to select different levels
+     */
     public void act()
     {
         if(Greenfoot.isKeyDown("1") || wOne.touchingCursor())
@@ -75,7 +83,9 @@ public class GameWorld extends World
             Greenfoot.setWorld(new TitleScreen());
         }
     }
-
+    /**
+     * Recursive method to spawn enemies based on wave number and time renaming
+     */
     public void spawnBalloons(int level, int wave, int timer)
     {
         if(timer == 0) return;
@@ -131,6 +141,9 @@ public class GameWorld extends World
         int y = Greenfoot.getRandomNumber(700);
         return y;
     }
+    /**
+     * A method to instantly kill your character
+     */
     public void death()
     {
         if(Greenfoot.isKeyDown("O"))
