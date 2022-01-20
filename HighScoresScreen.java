@@ -94,13 +94,6 @@ public class HighScoresScreen extends World
         }
     }
 
-    private void setup(ArrayList<Integer> arr)
-    {
-        for (int i = 0; i < arr.size() - 1; i++){
-            arr.set(i, i + 1);
-        }
-    }
-
     private void shuffle(ArrayList<Integer> arr)
     {
         for(int i = 0; i < arr.size(); i++){

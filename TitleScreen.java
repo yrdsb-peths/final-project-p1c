@@ -20,29 +20,30 @@ public class TitleScreen extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
-        Label start = new Label("Start Playing!", 75);
-        start.setLineColor(Color.CYAN);
-        Label shop = new Label("Shop!", 50);
-        shop.setLineColor(Color.MAGENTA);
-        Label info = new Label("Instructions!", 50);
-        info.setLineColor(Color.ORANGE);
-        Label hiScore = new Label("Highest Waves!", 40);
-        hiScore.setLineColor(Color.WHITE);
-        hiScore.setFillColor(Color.BLACK);
-        addObject(shop, 400, 430);
+        Label start = new Label("Start Playing!", 75); //Start playing label
+        start.setLineColor(Color.CYAN); //Change colour
+        Label shop = new Label("Shop!", 50); //Shop label
+        shop.setLineColor(Color.MAGENTA); //Change colour
+        Label info = new Label("Instructions!", 50); //Instructions label
+        info.setLineColor(Color.ORANGE); //Change colour
+        Label hiScore = new Label("Highest Waves!", 40); //Highscore label
+        hiScore.setLineColor(Color.WHITE); //Change colour of outline
+        hiScore.setFillColor(Color.BLACK); //Change label colour to black
+        addObject(shop, 400, 430); //Add labels
         addObject(start, 600, 270);
         addObject(info, 800, 430);
         addObject(hiScore, 600, 570);
 
-        Label space = new Label("<space>", 65);
+        Label space = new Label("<space>", 65); //Create labels inside buttons
         Label s = new Label("<S>", 65);
         Label i = new Label("<I>", 65);
         Label h = new Label("<H>", 65);
-        addObject(space, 600, 350);
+        addObject(space, 600, 350); //Add labels
         addObject(s, 400, 500);
         addObject(i, 800, 500);
         addObject(h, 600, 630);
 
+        //Add main menu animated images for monkey and coconut
         MenuMonkey ape1 = new MenuMonkey(3);
         addObject(ape1, 150,200);
         MenuMonkey ape2 = new MenuMonkey(-3);
@@ -61,6 +62,7 @@ public class TitleScreen extends World
         MenuNut nut4 = new MenuNut(-10);
         addObject(nut4, 1100,350);
 
+        //Create buttons and add them
         startB = new Button();
         addObject(startB,600,350);
 

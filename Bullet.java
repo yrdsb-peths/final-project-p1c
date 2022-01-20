@@ -17,8 +17,6 @@ public class Bullet extends Actor
     GreenfootImage T3 = new GreenfootImage("coconut3.png");
     GreenfootSound pop = new GreenfootSound("balloon_pop.wav");
     
-    
-    
     public Bullet()
     {
         pop.setVolume(60);

@@ -34,12 +34,12 @@ public class Stack<E> implements Iterable<E>
         return first.item;
     }
     public void clear()
-    {
+    {   
         first = null;
     }
-    public void empty()
+    public boolean empty()
     {
-        first = null;
+        return (first == null);
     }
 
     // To make this data structure work with for-each loops
