@@ -153,7 +153,6 @@ public class HighScoresScreen extends World
                 nums1.add(EndScreen.waveValue);
                 quicksort(nums1);
                 update1();
-                //System.out.println(nums1.toString());
                 break;
             case 2:
                 nums2.add(EndScreen.waveValue);

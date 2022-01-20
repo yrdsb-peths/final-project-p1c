@@ -18,7 +18,7 @@ public class GreenBalloon extends Enemy
         trackMonkey();
         move(3);
         if (isTouching(Player.class)){
-            if(Health.life.peek() > 2)
+            if(Health.life.peek() > 2 && !Health.life.isEmpty())
             {
                 Health.life.pop();
                 Health.life.pop();
