@@ -37,10 +37,6 @@ public class Stack<E> implements Iterable<E>
     {   
         first = null;
     }
-    public boolean empty()
-    {
-        return (first == null);
-    }
 
     // To make this data structure work with for-each loops
     public Iterator<E> iterator() {
