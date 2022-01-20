@@ -33,7 +33,10 @@ public class Stack<E> implements Iterable<E>
     {
         return first.item;
     }
-    
+    public void clear()
+    {
+        first = null;
+    }
     public void empty()
     {
         first = null;

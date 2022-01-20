@@ -9,7 +9,8 @@ import java.util.List;
  */
 public class GameWorld extends World
 {
-    public static int world = 1;
+    public static int world = 0;
+    public static int wave;
 
     Button wOne;
     Button wTwo;
@@ -124,5 +125,11 @@ public class GameWorld extends World
         int y = Greenfoot.getRandomNumber(700);
         return y;
     }
-
+    public void death()
+    {
+        if(Greenfoot.isKeyDown("O"))
+        {
+            Health.life.clear();
+        }
+    }
 }

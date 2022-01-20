@@ -8,6 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EndScreen extends World
 {
+    GreenfootImage L1 = new GreenfootImage("1done.png");
+    GreenfootImage L2 = new GreenfootImage("2done.png");
+    GreenfootImage L3 = new GreenfootImage("3done.png");
+    static int waveValue;
     /**
      * Constructor for objects of class EndScreen.
      * 
@@ -16,22 +20,31 @@ public class EndScreen extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
-        Label theend = new Label("Game Over!", 85);
-        Label spacebar = new Label("Hit <backspace> to return to menu!", 60);
-        Player player = new Player();
-        int score = player.score;
-        HighScoresScreen highscores = new HighScoresScreen();
-        highscores.nums.add(score);
-        Label finalscore = new Label("Score: " + score, 60);
+        waveValue = GameWorld.wave-1;
+        Label gO = new Label("Game Over!", 85);
+        Label cont = new Label("Press <H> to see High Scores!", 60);
+        Label finalscore = new Label("Wave Reached: " + waveValue + "!", 60);
         addObject(finalscore, 600, 500);
-        addObject(theend, 600, 250);
-        addObject(spacebar, 600, 350);
-        player.score = 0;
+        addObject(gO, 600, 250);
+        addObject(cont, 600, 350);
     }
+
     public void act(){
-        if(Greenfoot.isKeyDown("backspace"))
+        switch(GameWorld.world)
         {
-            Greenfoot.setWorld(new TitleScreen());
+            case 1:
+                setBackground(L1);
+                break;
+            case 2: 
+                setBackground(L2); 
+                break;
+            case 3: 
+                setBackground(L3); 
+                break;
+        }
+        if(Greenfoot.isKeyDown("H"))
+        {
+            Greenfoot.setWorld(new HighScoresScreen());
         }
     }
 }
