@@ -10,7 +10,8 @@ public class Enemy extends Actor
 {
     int speed;
     int power;
-    public static int moneyValue;
+    public int moneyValue;
+
     GreenfootImage redB = new GreenfootImage("balloon1.png");
     GreenfootImage blueB = new GreenfootImage("balloon2.png");
     GreenfootImage greenB = new GreenfootImage("balloon3.png");
@@ -27,25 +28,26 @@ public class Enemy extends Actor
     {
         if(type == EnemyType.red)
         {
-            new Enemy(1, 1, 1);
+            this(1, 1, 1);
             setImage(redB);
         }
         else if(type == EnemyType.blue)
         {
-            new Enemy(2, 1, 2);
+            this(2, 1, 2);
             setImage(blueB);
         }
         else if(type == EnemyType.green)
         {
-            new Enemy(3, 2, 4);
+            this(3, 2, 4);
             setImage(greenB);
         }
         else if(type == EnemyType.orange)
         {
-            new Enemy(2, 4, 5);
+            this(2, 4, 5);
             setImage(orangeB);
         }
     }
+    
     /**
      * Act - do whatever the Enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

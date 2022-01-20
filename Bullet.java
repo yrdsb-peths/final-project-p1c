@@ -16,13 +16,13 @@ public class Bullet extends Actor
     GreenfootImage T2 = new GreenfootImage("coconut2.png");
     GreenfootImage T3 = new GreenfootImage("coconut3.png");
     GreenfootSound pop = new GreenfootSound("balloon_pop.wav");
-    
-    
+
     
     public Bullet()
     {
         pop.setVolume(60);
     }
+
     /**
      * Act - do whatever the Bullet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -42,7 +42,7 @@ public class Bullet extends Actor
         {
             removeTouching(Enemy.class);
             Player.score++;
-            ShopWorld.money += Enemy.getMoneyValue();
+            ShopWorld.money += Enemy.moneyValue;
             T1hits();
         }
     }
