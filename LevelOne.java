@@ -10,10 +10,9 @@ import java.util.Iterator;
 public class LevelOne extends GameWorld
 {
     int time = 0;
-    int wave = 1;
     int timer = 200;
     Label healthLabel;
-    
+
     /**
      * Constructor for objects of class LevelOne.
      * 
@@ -31,6 +30,8 @@ public class LevelOne extends GameWorld
         healthLabel.setFillColor(Color.RED);
         addObject(healthLabel, 120, 70);
         waveCount = new Label("Wave " + wave, 60);
+        wave = 1;
+        world = 1;
     }
 
     public void act()
@@ -49,5 +50,10 @@ public class LevelOne extends GameWorld
         {
             healthLabel.setValue(Health.life.peek());
         }
+        else
+        {
+            Greenfoot.setWorld(new EndScreen());
+        }
+        death();
     }
 }

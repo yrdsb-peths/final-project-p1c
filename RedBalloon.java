@@ -19,7 +19,9 @@ public class RedBalloon extends Enemy
         trackMonkey();
         move(1);
         if (isTouching(Player.class)){
-            Health.life.pop();
+            if(!Health.life.isEmpty()){
+                Health.life.pop();
+            }
             getWorld().removeObject(this);
         }
     }

@@ -42,19 +42,19 @@ public class Player extends Actor
     {
         if(Greenfoot.isKeyDown("W"))
         {
-            setLocation(getX(),getY()-2);
+            setLocation(getX(),getY()-(1+armourNum));
         }
         if(Greenfoot.isKeyDown("A"))
         {
-            setLocation(getX()-2,getY());
+            setLocation(getX()-(1+armourNum),getY());
         }
         if(Greenfoot.isKeyDown("S"))
         {
-            setLocation(getX(),getY()+2);
+            setLocation(getX(),getY()+(1+armourNum));
         }
         if(Greenfoot.isKeyDown("D"))
         {
-            setLocation(getX()+2,getY());
+            setLocation(getX()+(1+armourNum),getY());
         }
     }
 
@@ -82,7 +82,7 @@ public class Player extends Actor
             Bullet bullet = new Bullet();
             getWorld().addObject(bullet,getX(),getY());
             bullet.turnTowards(mouse.getX(), mouse.getY());
-            shootCooldown = 30;
+            shootCooldown = (30 / Bullet.weaponNum);
         }
         shootCooldown--;
     }
@@ -96,30 +96,15 @@ public class Player extends Actor
     {
         if(armourNum == 1)
         {
-            monkeyT1();
             setImage(T1);
         }
         else if(armourNum == 2)
         {
-            monkeyT2();
             setImage(T2);
         }
         else if(armourNum == 3)
         {
-            monkeyT3();
             setImage(T3);
         }
-    }
-    public void monkeyT1()
-    {
-        
-    }
-    public void monkeyT2()
-    {
-        
-    }
-    public void monkeyT3()
-    {
-        
     }
 }

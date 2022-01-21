@@ -18,7 +18,9 @@ public class BlueBalloon extends Enemy
         trackMonkey();
         move(2);
         if (isTouching(Player.class)){
-            Health.life.pop();
+            if(!Health.life.isEmpty()){
+                Health.life.pop();
+            }
             getWorld().removeObject(this);
         }
     }

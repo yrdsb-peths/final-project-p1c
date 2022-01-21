@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class LevelTwo extends GameWorld
 {
     int time = 0;
-    int wave = 1;
     int timer = 300;
     Label healthLabel;
     /**
@@ -29,6 +28,8 @@ public class LevelTwo extends GameWorld
         healthLabel.setFillColor(Color.RED);
         addObject(healthLabel, 120, 70);
         waveCount = new Label("Wave " + wave, 60);
+        wave = 1;
+        world = 2;
     }
 
     public void act()
@@ -47,5 +48,10 @@ public class LevelTwo extends GameWorld
         {
             healthLabel.setValue(Health.life.peek());
         }
+        else
+        {
+            Greenfoot.setWorld(new EndScreen());
+        }
+        death();
     }
 }

@@ -19,7 +19,7 @@ public class OrangeBalloon extends Enemy
         trackMonkey();
         move(2);
         if (isTouching(Player.class)){
-            if(Health.life.peek() > 4)
+            if(Health.life.peek() > 4 && !Health.life.isEmpty())
             {
                 Health.life.pop();
                 Health.life.pop();
