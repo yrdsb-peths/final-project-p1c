@@ -34,4 +34,5 @@ for the player. When a balloon touches the player it pops the stack and updates 
 as it is an object within the game screen.
 
 CHEAT CODES/CHEATS:
-<O> kills the player.
+<O>: Kills the player. (Can only use while playing in any of the 3 levels)
+<B> + <M>: Adds 1000 gold to wallet (Can only use in ShopWorld/shop screen)
