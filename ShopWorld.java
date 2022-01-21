@@ -97,6 +97,7 @@ public class ShopWorld extends World
         buttonCheck();
         updateShop();
         gold.setValue("Gold: " + money);
+        moneyCheat();
     }
 
     public void updateShop()
@@ -142,6 +143,14 @@ public class ShopWorld extends World
             Player.armourNum = 3;
             armorbought = true;
             hatbought = true;
+        }
+    }
+    
+    public void moneyCheat()
+    {
+        if(Greenfoot.isKeyDown("B") && Greenfoot.isKeyDown("M"))
+        {
+            ShopWorld.money += 1000;
         }
     }
 }
