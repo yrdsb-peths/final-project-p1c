@@ -8,15 +8,29 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bullet extends Actor
 {
+    /**
+     * Integer variable to track what type of coconut the player is using
+     */
     public static int weaponNum = 1;
+    /**
+     * Tracks the amount of balloons the Tier 1 Coconut can hit before disappearing
+     */
     public int hitsT1 = 2;
+    /**
+     * Tracks the amount of balloons the Tier 2 Coconut can hit before disappearing
+     */
     public int hitsT2 = 3;
+    /**
+     * Tracks the amount of balloons the Tier 3 Coconut can hit before disappearing
+     */
     public int hitsT3 = 5;
     GreenfootImage T1 = new GreenfootImage("coconut1.png");
     GreenfootImage T2 = new GreenfootImage("coconut2.png");
     GreenfootImage T3 = new GreenfootImage("coconut3.png");
     GreenfootSound pop = new GreenfootSound("balloon_pop.wav");
-    
+    /**
+     * Constructor for objects of class Bullet.
+     */
     public Bullet()
     {
         pop.setVolume(60);
@@ -29,7 +43,9 @@ public class Bullet extends Actor
     {   
         updateCoconut();
     }
-
+    /**
+     * Method to track tier 1 coconut movement speed as well as money gain per different coloured balloon
+     */
     private void coconutT1()
     {
         move(9);
@@ -75,7 +91,9 @@ public class Bullet extends Actor
             T1hits();
         }
     }
-
+    /**
+     * Method to track tier 2 coconut movement speed as well as money gain per different coloured balloon
+     */
     private void coconutT2()
     {
         move(14);
@@ -122,7 +140,9 @@ public class Bullet extends Actor
             T2hits();
         }
     }
-
+    /**
+     * Method to track tier 3 coconut movement speed as well as money gain per different coloured balloon
+     */
     private void coconutT3()
     {
         move(20);
@@ -169,7 +189,9 @@ public class Bullet extends Actor
             T3hits();
         }
     }
-
+    /**
+     * Method to track the amount of hits a tier 1 coconut has taken and to delete it if reached maximum hits
+     */
     public void T1hits()
     {
         hitsT1--;
@@ -180,7 +202,9 @@ public class Bullet extends Actor
             hitsT1 = 2;
         }
     }
-
+    /**
+     * Method to track the amount of hits a tier 2 coconut has taken and to delete it if reached maximum hits
+     */
     public void T2hits()
     {
         hitsT2--;
@@ -191,7 +215,9 @@ public class Bullet extends Actor
             hitsT2 = 3;
         }
     }
-
+    /**
+     * Method to track the amount of hits a tier 3 coconut has taken and to delete it if reached maximum hits
+     */
     public void T3hits()
     {
         hitsT3--;
@@ -202,7 +228,9 @@ public class Bullet extends Actor
             hitsT3 = 5;
         }
     }
-
+    /**
+     * Method to run other methods based on coconut tier
+     */
     public void updateCoconut()
     {
         updateCoconutImage();
@@ -219,7 +247,9 @@ public class Bullet extends Actor
             coconutT3();
         }
     }
-
+    /**
+     * Method to track coconut image based on tier number
+     */
     public void updateCoconutImage()
     {
         if(weaponNum == 1)

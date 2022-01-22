@@ -75,12 +75,16 @@ public class TitleScreen extends World
         hiScoB = new Button();
         addObject(hiScoB, 600, 630);
     }
-
+    /**
+     * The act method that runs the worldCheck method
+     */
     public void act()
     {
         worldCheck();
     }
-
+    /**
+     * The method that tracks the world switching for each different button press
+     */
     public void worldCheck()
     {
         if(startB.touchingCursor()  || Greenfoot.isKeyDown("space"))

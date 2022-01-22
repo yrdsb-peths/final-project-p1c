@@ -31,7 +31,9 @@ public class LevelThree extends GameWorld
         wave = 1;
         world = 3;
     }
-
+    /**
+     * Method to keep track of wave and spawn balloons and to increase the timer count. Also keeps track of health and player death
+     */
     public void act()
     {
         if(time % 300 == 0)

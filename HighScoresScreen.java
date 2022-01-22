@@ -8,8 +8,17 @@ import java.util.ArrayList;
  */
 public class HighScoresScreen extends World
 {
+    /**
+     * Arraylist to hold highscore values for level 1
+     */
     public static ArrayList<Integer> nums1 = new ArrayList<Integer>();
+    /**
+     * Arraylist to hold highscore values for level 2
+     */
     public static ArrayList<Integer> nums2 = new ArrayList<Integer>();
+    /**
+     * Arraylist to hold highscore values for level 3
+     */
     public static ArrayList<Integer> nums3 = new ArrayList<Integer>();
     private int target;
     Label level1;
@@ -108,7 +117,9 @@ public class HighScoresScreen extends World
         arr.set(j, arr.get(i));
         arr.set(i, temp);
     }
-
+    /**
+     * Method to partition an arraylist in quicksort
+     */
     public int partition(ArrayList<Integer> a, int lo, int hi) {
         int i = lo; 
         int j = hi + 1;

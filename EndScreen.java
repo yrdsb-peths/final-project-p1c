@@ -8,9 +8,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EndScreen extends World
 {
+    /**
+     * Variable to hold endscreen image for level 1
+     */
     GreenfootImage L1 = new GreenfootImage("1done.png");
+    /**
+     * Variable to hold endscreen image for level 2
+     */
     GreenfootImage L2 = new GreenfootImage("2done.png");
+    /**
+     * Variable to hold endscreen image for level 3
+     */
     GreenfootImage L3 = new GreenfootImage("3done.png");
+    /**
+     * Variable to record final wave that player died on
+     */
     static int waveValue;
     /**
      * Constructor for objects of class EndScreen.
@@ -28,7 +40,9 @@ public class EndScreen extends World
         addObject(gO, 600, 250);
         addObject(cont, 600, 350);
     }
-
+    /**
+     * Act method to switch background image based on level and to switch world to highscore if "H" is pressed
+     */
     public void act(){
         switch(GameWorld.world)
         {

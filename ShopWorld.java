@@ -12,10 +12,25 @@ public class ShopWorld extends World
     Button steelB;
     Button hatB;
     Button armorB;
+    /**
+     * Boolean value to track if flaming coconut was bought or not to prevent double buy
+     */
     public static boolean flamingbought = false;
+    /**
+     * Boolean value to track if steel coconut was bought or not to prevent double buy
+     */
     public static boolean steelbought = false;
+    /**
+     * Boolean value to track if hat armor was bought or not to prevent double buy
+     */
     public static boolean hatbought = false;
+    /**
+     * Boolean value to track if steel armor was bought or not to prevent double buy
+     */
     public static boolean armorbought = false;
+    /**
+     * Integer variable to track amount of gold that can be spent in the shop
+     */
     public static int money = 0;
     Label flaming = new Label("Flaming Coconut", 35);
     Label steel = new Label("Steel Coconut", 35);
@@ -88,7 +103,10 @@ public class ShopWorld extends World
         Label goBack = new Label("Press <B> or click the button to go back!", 50);
         addObject(goBack, 700, 650);
     }
-
+    /**
+     * The act method. Tracks keypresses to switch world to titlescreen. Runs buttoncheck method, update shop method, and moneycheat method.
+     * Also sets the gold counter dynamically on shop purchases
+     */
     public void act(){
         if(Greenfoot.isKeyDown("B") || returnMenu.touchingCursor())
         {
@@ -99,7 +117,9 @@ public class ShopWorld extends World
         gold.setValue("Gold: " + money);
         moneyCheat();
     }
-
+    /**
+     * Method to update the button labels to "BOUGHT" if purchased
+     */
     public void updateShop()
     {
         if(flamingbought == true){
@@ -115,7 +135,9 @@ public class ShopWorld extends World
             buyFour.setValue("BOUGHT");
         }
     }
-
+    /**
+     * Method to purchase items if buttons are pressed with an appropriate amount of gold
+     */
     public void buttonCheck()
     {
         if(flamingB.touchingCursor() && money >= 200 && flamingbought == false)
@@ -145,7 +167,9 @@ public class ShopWorld extends World
             hatbought = true;
         }
     }
-    
+    /**
+     * Cheat code method to give you 100 gold if U and M are pressed together
+     */
     public void moneyCheat()
     {
         if(Greenfoot.isKeyDown("U") && Greenfoot.isKeyDown("M"))

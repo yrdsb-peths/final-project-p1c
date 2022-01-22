@@ -27,6 +27,9 @@ public class InfoWorld extends World
         addObject(lineFour, 600, 500);
         addObject(lineFive, 600, 600);
     }
+    /**
+     * Act method that tracks keypresses to change world to titlescreen
+     */
     public void act(){
         if(Greenfoot.isKeyDown("B"))
         {
