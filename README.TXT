@@ -35,4 +35,4 @@ as it is an object within the game screen.
 
 CHEAT CODES/CHEATS:
 <O>: Kills the player. (Can only use while playing in any of the 3 levels)
-<B> + <M>: Adds 100 gold to wallet (Can only use in ShopWorld/shop screen)
+<U> + <M>: Adds 100 gold to wallet (Can only use in ShopWorld/shop screen)
