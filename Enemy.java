@@ -15,9 +15,11 @@ public class Enemy extends Actor
 
     public void act() 
     {
-
-    }    
-
+        
+    }
+    /**
+     * Method to allow balloons track monkey movement and follow the monkey
+     */
     public void trackMonkey()
     {
         if (getWorld().getObjects(Player.class).isEmpty()) return;

@@ -9,7 +9,13 @@ import java.util.Iterator;
  */
 public class Health extends Actor
 {
+    /**
+     * Stack to hold life points
+     */
     public static Stack<Integer> life = new Stack<Integer>();
+    /**
+     * Constructor for objects of class Health.
+     */
     public Health()
     {
         int loop = 0;
@@ -39,6 +45,9 @@ public class Health extends Actor
     {
         // Add your action code here.
     }
+    /**
+     * The method to clear all life points and kill the player
+     */
     public static void die()
     {
         life.clear();

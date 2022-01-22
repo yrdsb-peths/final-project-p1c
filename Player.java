@@ -8,11 +8,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
-    public static int score = 0;
+    /**
+     * Timer variable to keep track of dash cooldown
+     */
     public int dashTimer = 0;
+    /**
+     * Variable to keep track of shooting cooldown
+     */
     public int shootCooldown = 0;
     boolean mouseIsDown = false;
     MouseInfo mouse = Greenfoot.getMouseInfo();
+    /**
+     * Variable to keep track of armor type
+     */
     public static int armourNum = 1;
     GreenfootImage T1 = new GreenfootImage("o1.png");
     GreenfootImage T2 = new GreenfootImage("o2.png");
@@ -36,8 +44,10 @@ public class Player extends Actor
             turnTowards(mouse);
         }
         updateMonkey();
-    }    
-
+    }
+    /**
+     * Method that takes in keypresses for movement
+     */
     private void move()
     {
         if(Greenfoot.isKeyDown("W"))
@@ -57,7 +67,9 @@ public class Player extends Actor
             setLocation(getX()+(1+armourNum),getY());
         }
     }
-
+    /**
+     * Method that controls the dash movement
+     */
     public void dash()
     {
         if(dashTimer <= 0)
@@ -70,7 +82,9 @@ public class Player extends Actor
         }
         dashTimer--;
     }
-
+    /**
+     * The method that tracks the mouse and shoots coconuts on click
+     */
     public void shoot(MouseInfo mouse){
         if(Greenfoot.mousePressed(null)){
             mouseIsDown = true;
@@ -86,12 +100,16 @@ public class Player extends Actor
         }
         shootCooldown--;
     }
-
+    /**
+     * Method that turns monkey towards cursor coordinates
+     */
     public void turnTowards (MouseInfo mi)
     {
         turnTowards(mi.getX(), mi.getY());
     }
-    
+    /**
+     * Method that changes monkey image respective to the armor type equipped
+     */
     public void updateMonkey()
     {
         if(armourNum == 1)

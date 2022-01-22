@@ -8,7 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MenuNut extends Bullet
 {
-    int spinVal;    
+    int spinVal;
+    /**
+     * Construtor that sets spinVal variable for the act method to use
+     */
     public MenuNut(int spinning)
     {
         spinVal = spinning;
@@ -24,6 +27,4 @@ public class MenuNut extends Bullet
         turn(spinVal);
         updateCoconutImage();
     }
-
-
 }

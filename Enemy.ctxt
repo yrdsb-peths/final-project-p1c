@@ -6,4 +6,5 @@ comment1.target=void\ act()
 comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Enemy\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment2.params=
 comment2.target=void\ trackMonkey()
+comment2.text=\r\n\ Method\ to\ allow\ balloons\ track\ monkey\ movement\ and\ follow\ the\ monkey\r\n
 numComments=3

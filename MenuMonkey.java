@@ -8,7 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MenuMonkey extends Player
 {
-    int spinVal;    
+    int spinVal;
+    /**
+     * 
+     */
     public MenuMonkey(int spinning)
     {
         spinVal = spinning;
