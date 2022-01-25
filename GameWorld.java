@@ -2,10 +2,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
 
 /**
- * Write a description of class GameWorld here.
+ * The hub from which the player is able to select which world
+ * they would like to try. The grassland, desert, and graveyard
+ * levels are featured on screen for the player to select.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Aninda Saha, Conrad Mo 
+ * Jan 22, 2022
  */
 public class GameWorld extends World
 {
@@ -18,6 +20,7 @@ public class GameWorld extends World
      */
     public static int wave;
 
+    // Create buttons respective to each selectable world
     Button wOne;
     Button wTwo;
     Button wThree;
@@ -32,8 +35,9 @@ public class GameWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1); 
 
-        setPaintOrder(Button.class, Label.class);
+        setPaintOrder(Button.class, Label.class); // Make Buttons be ontop of Labels
 
+        // Create the three buttons and their respective Labels
         wOne = new Button();
         wTwo = new Button();
         wThree = new Button();
@@ -47,6 +51,7 @@ public class GameWorld extends World
         three.setLineColor(Color.RED);
         three.setFillColor(Color.BLACK);
 
+        // Add objects as well as new Labels to show respective key inputs
         addObject(wOne, 200, 370);
         addObject(new Label("<1>", 65), 200, 370);
         addObject(wTwo, 600, 370);
@@ -58,8 +63,10 @@ public class GameWorld extends World
         addObject(two, 600, 300);
         addObject(three, 1000, 300);
     }
+
     /**
-     * Manages keypresses to select different levels
+     * Manages keypresses and checks for button presses to 
+     * change the world to different levels
      */
     public void act()
     {
@@ -83,8 +90,18 @@ public class GameWorld extends World
             Greenfoot.setWorld(new TitleScreen());
         }
     }
+
     /**
-     * Recursive method to spawn enemies based on wave number and time renaming
+     * Recursive method to spawn enemies based on wave number and 
+     * time remaining. The level parameter is used to reduce the delay
+     * between each balloon spawn to give less time for the player
+     * to prepare in higher levels. The wave parameter is used to
+     * decide which of the 4 balloon types to spawn, with the
+     * stronger types having an advantage over the weaker ones.
+     * Lastly timer is used to increment the spawns as in each recursive
+     * call it reduces the value until it % 100 gives a desirable
+     * number. The Balloons are then spawned on the edges of the
+     * screen randomly.
      */
     public void spawnBalloons(int level, int wave, int timer)
     {
@@ -130,17 +147,24 @@ public class GameWorld extends World
         spawnBalloons(level, wave, timer-1);
     }
 
+    /**
+     * Gets a random location in the x-axis and returns it
+     */
     private int randomLocationX()
     {
         int x = Greenfoot.getRandomNumber(1200);
         return x;
     }
-
+    
+    /**
+     * Gets a random location in the y-axis and returns it
+     */
     private int randomLocationY()
     {
         int y = Greenfoot.getRandomNumber(700);
         return y;
     }
+
     /**
      * A method to instantly kill your character
      */

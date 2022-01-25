@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=EndScreen
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ EndScreen\ here.\r\n\ \r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ Game\ Over\ screen\ of\ Balloon\ Defence\ 3.\ This\ is\r\n\ where\ the\ game\ takes\ you\ once\ you\ have\ died\ to\ the\r\n\ balloon\ onslaught.\r\n\ \r\n\ Aninda\ Saha,\ Conrad\ Mo\r\n\ Jan\ 18,\ 2022\r\n
 comment1.params=
 comment1.target=EndScreen()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ EndScreen.\r\n\ \r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ method\ to\ switch\ background\ image\ based\ on\ level\ and\ to\ switch\ world\ to\ highscore\ if\ "H"\ is\ pressed\r\n
+comment2.text=\r\n\ Act\ method\ to\ switch\ background\ image\ based\ on\ level\ \r\n\ and\ to\ switch\ world\ to\ highscore\ if\ "H"\ is\ pressed\r\n
 numComments=3

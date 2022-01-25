@@ -73,7 +73,11 @@ public class HighScoresScreen extends World
         addObject(l32, 850, 350);
         l33 = new Label("3: ", 70);
         addObject(l33, 850, 500);
-
+        
+        Label returnLabel = new Label("Press <B> to return to main menu!", 60);
+        returnLabel.setFillColor(Color.GRAY);
+        returnLabel.setLineColor(Color.WHITE);
+        addObject(returnLabel, 600, 650);
         if(nums1.size() < 3)
         {
             nums1.add(0);

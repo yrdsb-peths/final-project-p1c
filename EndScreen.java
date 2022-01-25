@@ -1,10 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class EndScreen here.
+ * The Game Over screen of Balloon Defence 3. This is
+ * where the game takes you once you have died to the
+ * balloon onslaught.
  * 
- * @author (your name)
- * @version (a version number or a date)
+ * Aninda Saha, Conrad Mo
+ * Jan 18, 2022
  */
 public class EndScreen extends World
 {
@@ -41,10 +43,11 @@ public class EndScreen extends World
         addObject(cont, 600, 350);
     }
     /**
-     * Act method to switch background image based on level and to switch world to highscore if "H" is pressed
+     * Act method to switch background image based on level 
+     * and to switch world to highscore if "H" is pressed
      */
     public void act(){
-        switch(GameWorld.world)
+        switch(GameWorld.world) 
         {
             case 1:
                 setBackground(L1);

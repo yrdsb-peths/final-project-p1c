@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=LevelTwo
+comment0.text=\r\n\ The\ second\ level/world.\ This\ world\ is\ a\ desert\ style\ world,\r\n\ where\ the\ enemy\ spawns\ are\ greater\ in\ number\ and\ more\r\n\ frequent.\ Recommended\ for\ intermediate\ players.\r\n\ \r\n\ Code\ extremely\ similar\ to\ LevelOne,\ only\ some\ variable\r\n\ values\ differ.\r\n\ \r\n\ Aninda\ Saha,\ Conrad\ Mo\r\n\ Jan\ 21,\ 2022\r\n
+comment1.params=
+comment1.target=LevelTwo()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ LevelTwo.\r\n\ \r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Method\ to\ keep\ track\ of\ wave\ and\ spawn\ balloons\ and\ to\ increase\ the\ timer\ count.\ Also\ keeps\ track\ of\ health\ and\ player\ death\r\n
+numComments=3

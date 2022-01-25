@@ -1,10 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class LevelThree here.
+ * The third and final level/world. The graveyard has much
+ * faster enemy spawns with many more enemies spawing at a
+ * time. The player should be upgraded significantly to
+ * try to survive this ruthless world.
  * 
- * @author (your name)
- * @version (a version number or a date)
+ * Code extremely similar to LevelOne and LevelTwo, only
+ * differing in some variable values.
+ * 
+ * Aninda Saha, Conrad Mo
+ * Jan 21, 2022
  */
 public class LevelThree extends GameWorld
 {
@@ -29,7 +35,7 @@ public class LevelThree extends GameWorld
         addObject(healthLabel, 120, 70);
         waveCount = new Label("Wave " + wave, 60);
         wave = 1;
-        world = 3;
+        world = 3;// Level 3, thus world value is set to three for use in HighScoresScreen
     }
     /**
      * Method to keep track of wave and spawn balloons and to increase the timer count. Also keeps track of health and player death

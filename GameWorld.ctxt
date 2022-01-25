@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=GameWorld
+comment0.text=\r\n\ The\ hub\ from\ which\ the\ player\ is\ able\ to\ select\ which\ world\r\n\ they\ would\ like\ to\ try.\ The\ grassland,\ desert,\ and\ graveyard\r\n\ levels\ are\ featured\ on\ screen\ for\ the\ player\ to\ select.\r\n\ \r\n\ Aninda\ Saha,\ Conrad\ Mo\ \r\n\ Jan\ 22,\ 2022\r\n
+comment1.params=
+comment1.target=GameWorld()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ GameWorld.\r\n\ \r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Manages\ keypresses\ and\ checks\ for\ button\ presses\ to\ \r\n\ change\ the\ world\ to\ different\ levels\r\n
+comment3.params=level\ wave\ timer
+comment3.target=void\ spawnBalloons(int,\ int,\ int)
+comment3.text=\r\n\ Recursive\ method\ to\ spawn\ enemies\ based\ on\ wave\ number\ and\ \r\n\ time\ remaining.\ The\ level\ parameter\ is\ used\ to\ reduce\ the\ delay\r\n\ between\ each\ balloon\ spawn\ to\ give\ less\ time\ for\ the\ player\r\n\ to\ prepare\ in\ higher\ levels.\ The\ wave\ parameter\ is\ used\ to\r\n\ decide\ which\ of\ the\ 4\ balloon\ types\ to\ spawn,\ with\ the\r\n\ stronger\ types\ having\ an\ advantage\ over\ the\ weaker\ ones.\r\n\ Lastly\ timer\ is\ used\ to\ increment\ the\ spawns\ as\ in\ each\ recursive\r\n\ call\ it\ reduces\ the\ value\ until\ it\ %\ 100\ gives\ a\ desirable\r\n\ number.\ The\ Balloons\ are\ then\ spawned\ on\ the\ edges\ of\ the\r\n\ screen\ randomly.\r\n
+comment4.params=
+comment4.target=int\ randomLocationX()
+comment4.text=\r\n\ Gets\ a\ random\ location\ in\ the\ x-axis\ and\ returns\ it\r\n
+comment5.params=
+comment5.target=int\ randomLocationY()
+comment5.text=\r\n\ Gets\ a\ random\ location\ in\ the\ y-axis\ and\ returns\ it\r\n
+comment6.params=
+comment6.target=void\ death()
+comment6.text=\r\n\ A\ method\ to\ instantly\ kill\ your\ character\r\n
+numComments=7

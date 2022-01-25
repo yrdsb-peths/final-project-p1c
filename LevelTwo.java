@@ -1,10 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class LevelTwo here.
+ * The second level/world. This world is a desert style world,
+ * where the enemy spawns are greater in number and more
+ * frequent. Recommended for intermediate players.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Code extremely similar to LevelOne, only some variable
+ * values differ.
+ * 
+ * Aninda Saha, Conrad Mo
+ * Jan 21, 2022
  */
 public class LevelTwo extends GameWorld
 {
@@ -29,7 +34,7 @@ public class LevelTwo extends GameWorld
         addObject(healthLabel, 120, 70);
         waveCount = new Label("Wave " + wave, 60);
         wave = 1;
-        world = 2;
+        world = 2;// Level 2, thus world value is set to two for use in HighScoresScreen
     }
     /**
      * Method to keep track of wave and spawn balloons and to increase the timer count. Also keeps track of health and player death
