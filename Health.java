@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.Iterator;
 
 /**
- * Write a description of class Health here.
+ * A class to store a stack for health.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -19,6 +19,8 @@ public class Health extends Actor
     public Health()
     {
         int loop = 0;
+        // Values pushed are based on the armour that the
+        // player currently has unlocked
         if(Player.armourNum == 1)
         {
             loop = 5;
@@ -32,18 +34,10 @@ public class Health extends Actor
             loop = 10;
         }
         
-        for(int i = 1; i <= loop; i++)
+        for(int i = 1; i <= loop; i++) // Loop pushes specific numbers into stack
         {
             life.push(i);
         }
-    }
-    /**
-     * Act - do whatever the Health wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
     }
     /**
      * The method to clear all life points and kill the player

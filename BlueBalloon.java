@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class BlueBalloon here.
+ * Tier 2 enemy
  * 
  * @author (your name) 
  * @version (a version number or a date)

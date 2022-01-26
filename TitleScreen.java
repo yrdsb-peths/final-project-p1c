@@ -12,6 +12,8 @@ public class TitleScreen extends World
     Button infoB; //Button for instructions page
     Button shopB; //Button for shop page
     Button hiScoB; //Button for high score page
+    
+    static GreenfootSound music = new GreenfootSound("music.mp3");
     /**
      * Constructor for objects of class TitleScreen.
      * 
@@ -81,6 +83,7 @@ public class TitleScreen extends World
     public void act()
     {
         worldCheck();
+        checkForMusic();
     }
     /**
      * The method that tracks the world switching for each different button press
@@ -102,6 +105,23 @@ public class TitleScreen extends World
         if(hiScoB.touchingCursor() || Greenfoot.isKeyDown("H"))
         {
             Greenfoot.setWorld(new HighScoresScreen());
+        }
+    }
+    
+    /**
+     * This method plays the music and checks if it is still running
+     * to prevent the song from playing overtop of itself.
+     */
+    public void checkForMusic()
+    {
+        if(!music.isPlaying())
+        {
+            music.setVolume(20);
+            music.playLoop();
+        }
+        else
+        {
+            return;
         }
     }
 }
