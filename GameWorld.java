@@ -62,6 +62,8 @@ public class GameWorld extends World
         addObject(one, 200, 300);
         addObject(two, 600, 300);
         addObject(three, 1000, 300);
+        
+        addObject(new Label("Press <B> to return to menu!", 50), 600, 650);
     }
 
     /**

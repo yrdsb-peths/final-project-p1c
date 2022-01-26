@@ -12,7 +12,7 @@ public class InfoWorld extends World
     Label lineTwo = new Label("Shift to dash into the direction you're facing", 60);
     Label lineThree = new Label("Left Click to shoot and move mouse to aim", 60);
     Label lineFour = new Label("Avoid balloons and shoot them to pop them", 60);
-    Label lineFive = new Label("Hit <B> to go back", 60);
+    Button returnMenu;
     /**
      * Constructor for objects of class InfoWorld.
      * 
@@ -25,13 +25,20 @@ public class InfoWorld extends World
         addObject(lineTwo, 600, 300);
         addObject(lineThree, 600, 400);
         addObject(lineFour, 600, 500);
-        addObject(lineFive, 600, 600);
+        
+        setPaintOrder(Button.class, Label.class);
+        returnMenu = new Button();
+        addObject(returnMenu, 120, 650);
+        Label b = new Label("\u21e6", 90);
+        addObject(b, 120, 644);
+        Label goBack = new Label("Press <B> or click the button to go back!", 50);
+        addObject(goBack, 700, 650);
     }
     /**
      * Act method that tracks keypresses to change world to titlescreen
      */
     public void act(){
-        if(Greenfoot.isKeyDown("B"))
+        if(Greenfoot.isKeyDown("B") || returnMenu.touchingCursor())
         {
             Greenfoot.setWorld(new TitleScreen());
         }

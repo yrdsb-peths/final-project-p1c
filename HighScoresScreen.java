@@ -33,6 +33,8 @@ public class HighScoresScreen extends World
     Label l31;
     Label l32;
     Label l33;
+    
+    Button returnMenu;
     /**
      * Constructor for objects of class HighScoresScreen.
      * 
@@ -41,6 +43,8 @@ public class HighScoresScreen extends World
     {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
+        
+        setPaintOrder(Button.class, Label.class);
         level1 = new Label("World 1 High Waves!", 45);
         level1.setFillColor(Color.GREEN);
         addObject(level1, 210, 100);
@@ -74,10 +78,7 @@ public class HighScoresScreen extends World
         l33 = new Label("3: ", 70);
         addObject(l33, 850, 500);
         
-        Label returnLabel = new Label("Press <B> to return to main menu!", 60);
-        returnLabel.setFillColor(Color.GRAY);
-        returnLabel.setLineColor(Color.WHITE);
-        addObject(returnLabel, 600, 650);
+        
         if(nums1.size() < 3)
         {
             nums1.add(0);
@@ -97,11 +98,21 @@ public class HighScoresScreen extends World
             nums3.add(0);
         }
         sort();
+        
+        returnMenu = new Button();
+        addObject(returnMenu, 120, 650);
+        Label b = new Label("<B>", 70);
+        addObject(b, 120, 650);
+        
+        Label returnLabel = new Label("Press <B> or click the button to return to menu!", 50);
+        returnLabel.setFillColor(Color.GRAY);
+        returnLabel.setLineColor(Color.WHITE);
+        addObject(returnLabel, 720, 650);
     }
 
     public void act(){
         updateAll();
-        if(Greenfoot.isKeyDown("B"))
+        if(Greenfoot.isKeyDown("B") || returnMenu.touchingCursor())
         {
             Greenfoot.setWorld(new TitleScreen());
         }

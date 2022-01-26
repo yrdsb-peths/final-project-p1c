@@ -96,6 +96,7 @@ public class ShopWorld extends World
         addObject(hatB,400, 375);
         armorB = new Button();
         addObject(armorB,800, 375);
+        
         returnMenu = new Button();
         addObject(returnMenu, 120, 650);
         Label b = new Label("\u21e6", 90);
